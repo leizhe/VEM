@@ -1,0 +1,58 @@
+﻿@model VEM.Model.BrowserPrivilege
+<div class="control-group span3" style="float:left; margin-left:10px;">
+    <label class="control-label">售货机相关:</label>
+    <div class="controls">
+
+        <label class="radio">
+            @Html.RadioButtonFor(model => model.MachinePrivilege, true,
+                            new { @id = "machineRadio1", @name = "machineState" }) 查看全部
+        </label>
+        <label class="radio">
+            @Html.RadioButtonFor(model => model.MachinePrivilege, false,
+                            new { @id = "machineRadio0", @name = "machineState" }) 查看自己
+        </label>
+    </div>
+</div>
+<div class="control-group span3" style="float:left; margin-left:10px;">
+    <label class="control-label">商品相关:</label>
+    <div class="controls">
+
+        <label class="radio">
+            @Html.RadioButtonFor(model => model.CommodPrivilege, true,
+                            new { @id = "commodRadio1", @name = "commodState" }) 查看全部
+        </label>
+        <label class="radio">
+            @Html.RadioButtonFor(model => model.CommodPrivilege, false,
+                            new { @id = "commodRadio0", @name = "commodState" }) 查看自己
+        </label>
+    </div>
+</div>
+<div class="control-group span3" style="float:left; margin-left:10px;">
+    <label class="control-label">优惠券相关:</label>
+    <div class="controls">
+
+        <label class="radio">
+            @Html.RadioButtonFor(model => model.CouponPrivilege, true,
+                            new { @id = "couponRadio1", @name = "couponState" }) 查看全部
+        </label>
+        <label class="radio">
+            @Html.RadioButtonFor(model => model.CouponPrivilege, false,
+                            new { @id = "couponRadio0", @name = "couponState" }) 查看自己
+        </label>
+    </div>
+</div>
+<div class="control-group span3" style="float:left; margin-left:10px;">
+    <label class="control-label">会员相关:</label>
+    <div class="controls">
+
+        <label class="radio">
+            @Html.RadioButtonFor(model => model.MemberPrivilege, true,
+                            new { @id = "memberRadio1", @name = "memberState" }) 查看全部
+        </label>
+        <label class="radio">
+            @Html.RadioButtonFor(model => model.MemberPrivilege, false,
+                            new { @id = "memberRadio0", @name = "memberState" }) 查看自己
+        </label>
+    </div>
+</div>
+

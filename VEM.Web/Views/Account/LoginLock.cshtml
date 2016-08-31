@@ -1,0 +1,52 @@
+﻿@model VEM.Model.User
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>VEM System | 登录页</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    @Styles.Render("~/Media/GlpbalCss")
+    <link href="~/Media/css/lock.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/Media/image/favicon.ico" />
+</head>
+<body>
+    <div class="page-lock">
+        <div class="page-logo">
+            <a class="brand" href="/Account/Login">
+                <img src="/Media/image/logo-big.png" alt="logo" />
+            </a>
+        </div>
+        <div class="page-body">
+            <img class="page-lock-img" src="@Model.PicUrl" alt="">
+            <div class="page-lock-info">
+                <h1>@Html.DisplayFor(model => model.LoginName, new { name = "username" })</h1>
+                <span>@Html.DisplayFor(model => model.CompanyName)</span>
+                <span><em>@Html.DisplayFor(model => model.Address)</em></span>
+                @using (Html.BeginForm("LoginLock", "Account", FormMethod.Post, new { id = "login", @class = "form-search loginLock-form" }))
+                {
+                    <div class="input-append">
+                        <input class="m-wrap" type="password" placeholder="密码" name="password" />
+                        <button type="submit" class="btn blue icn-only"><i class="m-icon-swapright m-icon-white"></i></button>
+                    </div>
+                    <div class="relogin">
+                        <a href="~/Account/NoMySelf">我不是 @Html.DisplayFor(model => model.LoginName) </a>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="page-footer">
+            2016 &copy; VemSystem by Homson.
+        </div>
+    </div>
+    @Html.Partial("Controls/ModalDialogs")
+    @Scripts.Render("~/Media/CorePlugins")
+    <script src="~/Media/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="~/Media/js/jquery.backstretch.min.js" type="text/javascript"></script>
+    <script src="~/Media/myjs/CommonScript.js"></script>
+    <script src="~/Media/myjs/Status.js"></script>
+    <script src="~/Media/myjs/PageScript/HomeLoginLock.js"></script>
+</body>
+</html>

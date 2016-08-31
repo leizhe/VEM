@@ -1,0 +1,30 @@
+﻿<div class="header navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="/Home/Index">
+                <img src="/Media/image/logo.png" alt="logo" />
+            </a>
+            <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+                <img src="/Media/image/menu-toggler.png" alt="" />
+            </a>
+            <ul class="nav pull-right">
+               
+                    @Html.Raw(ViewData["ErrorMsgHtml"].ToString())
+                
+                <li class="dropdown user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img alt="" src="@Html.Raw(ViewData["UserPicUrl"].ToString())" width="30"/>
+                        <span class="username">@Html.Raw(ViewData["UserName"].ToString())</span>
+                        <i class="icon-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="~/Account/UserDetails"><i class="icon-user"></i> 我的信息</a></li>
+                        <li><a href="~/Account/EditPass"><i class="icon-calendar"></i> 修改密码</a></li>
+                        <li class="divider"></li>
+                        <li><a href="~/Account/Logout"><i class="icon-key"></i> 退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

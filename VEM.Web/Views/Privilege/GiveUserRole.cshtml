@@ -1,0 +1,108 @@
+﻿@model VEM.Model.User
+@{
+    ViewBag.Title = "GiveUserRole";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<VEM.Model.Role> Roles = (List<VEM.Model.Role>)ViewData["Roles"];
+}
+
+<div class="row-fluid">
+    <div class="span12">
+        <h3 class="page-title">
+            用户角色分配 <small></small>
+        </h3>
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-home"></i>
+                @Html.MvcSiteMap().SiteMapPath()
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="portlet box  light-grey">
+            <div class="portlet-title">
+                <div class="caption"><i class="icon-reorder"></i>角色分配</div>
+            </div>
+            <div class="portlet-body form">
+                @using (Html.BeginForm("SetRole", "Privilege", FormMethod.Post, new { id = "UserDetailsForm", enctype = "multipart/form-data", @class = "form-vertical" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        <div class="alert alert-error hide">
+                            <button class="close" data-dismiss="alert"></button>
+                            你的表单有错误. 请重新检查.
+                        </div>
+                        <div class="alert alert-success hide">
+                            <button class="close" data-dismiss="alert"></button>
+                            填写完毕，你现在可以提交表单了!
+                        </div>
+                        @Html.HiddenFor(model => model.Id)
+                        <div class="control-group">
+                            <div class="span2" style="padding:10px"><img src="@Model.PicUrl" alt=""></div>
+                            <div>
+                                <ul class="unstyled span10" style="padding:10px">
+                                    <li style="margin-bottom:3px"><span>用户名:</span> @Html.DisplayFor(model => model.LoginName)</li>
+                                    <li style="margin-bottom:3px"><span>姓名:</span> @Html.DisplayFor(model => model.Name)</li>
+                                    <li style="margin-bottom:3px"><span>公司名:</span> @Html.DisplayFor(model => model.CompanyName)</li>
+                                    <li style="margin-bottom:3px"><span>电话:</span> @Html.DisplayFor(model => model.Tel)</li>
+                                    <li style="margin-bottom:3px"><span>电子邮件:</span> <a href="#">@Html.DisplayFor(model => model.Email)</a></li>
+                                    <li style="margin-bottom:3px"><span>城市:</span>@Html.DisplayFor(model => model.City.CityName)@Html.DisplayFor(model => model.District.DistrictName)</li>
+                                    <li style="margin-bottom:3px"><span>地址:</span>@Html.DisplayFor(model => model.Address)</li>
+                                    <li>
+                                        <span>状态:</span>@if (Model.IsEnabled == true)
+                                        {
+                                            @Html.Raw("<span class='label label-success'>状态正常</span>")
+                                        }
+                                        else
+                                        {
+                                            @Html.Raw("<span class='label label-danger'>已禁用</span>")
+                                        }
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="span12">
+                            <label class="control-label">请选择角色：</label>
+                            <div class="controls" style="margin-left:260px">
+                                @foreach (VEM.Model.Role r in Roles)
+                                {
+                                    <label class="checkbox line">
+                                        <input type="checkbox" name="role" value="@r.Id" /> @r.RoleName
+                                    </label>
+                                }
+                                
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn green" style="align-content:center">保存</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("返回", "UserIndex")
+</div>
+<script type="text/javascript" src="~/media/js/jquery.validate.min.js"></script>
+<script src="~/Media/myjs/PageScript/GiveUserRole.js"></script>
+<script>
+    jQuery(document).ready(function () {
+        GiveUserRoleValidation.init();
+        var roleStr = "@ViewData["RoleStr"].ToString()";
+        if(roleStr)
+        {
+            var roles = roleStr.split(',');
+            for (var i = 0; i < roles.length; i++) {
+                if (roles[i]!="") {
+                    $("input[value='" + roles[i] + "']").attr("checked", true).parent().attr("class", "checked");
+                }
+                
+            }
+        }
+    });
+</script>

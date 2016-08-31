@@ -1,0 +1,251 @@
+﻿@model VEM.Model.User
+@{
+    ViewBag.Title = "UserDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/media/css/bootstrap-fileupload.css" rel="stylesheet" type="text/css" />
+<link href="~/media/css/chosen.css" rel="stylesheet" type="text/css" />
+<link href="~/media/css/profile.css" rel="stylesheet" type="text/css" />
+<div class="row-fluid">
+    <div class="span12">
+        <h3 class="page-title">
+            个人信息管理 <small>您可以在这里修改个人信息和密码</small>
+        </h3>
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-home"></i>@Html.MvcSiteMap().SiteMapPath()
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="tabbable tabbable-custom tabbable-full-width">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab_1_1" data-toggle="tab">基本信息</a></li>
+        <li class=""><a href="#tab_1_2" data-toggle="tab">详细信息</a></li>
+        <li class=""><a href="#tab_1_3" data-toggle="tab">修改个人信息</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane row-fluid active" id="tab_1_1">
+            <ul class="unstyled profile-nav span3">
+                <li><img src="@Model.PicUrl" alt=""></li>
+            </ul>
+            <div class="span9">
+                <div class="row-fluid">
+                    <div class="span8 profile-info">
+                        <h1>@Html.DisplayFor(model => model.LoginName)：@Html.DisplayFor(model => model.Name)</h1>
+                        <p>公司：@Html.DisplayFor(model => model.CompanyName).</p>
+                        <p>电话：@Html.DisplayFor(model => model.Tel).</p>
+                        <p>电子邮件：<a href="#">@Html.DisplayFor(model => model.Email)</a></p>
+                        <ul class="unstyled inline">
+                            <li>
+                                <i class="icon-user-md"></i>@if (Model.IsEnabled == true)
+                                {
+                                    @Html.Raw("<span class='label label-success'>状态正常</span>")
+                                }
+                                else
+                                {
+                                    @Html.Raw("<span class='label label-danger'>已禁用</span>")
+                                }
+                            </li>
+                            <li><i class="icon-map-marker"></i>@Html.DisplayFor(model => model.City.CityName)@Html.DisplayFor(model => model.District.DistrictName)</li>
+                            <li><i class="icon-home"></i>@Html.DisplayFor(model => model.Address)</li>
+                        </ul>
+                    </div>
+                    <div class="span4">
+                        <div class="portlet sale-summary">
+                            <div class="portlet-title">
+                                <div class="caption">统计信息</div>
+                            </div>
+                            <ul class="unstyled">
+                                <li>
+                                    <span class="sale-info">售货机数量 <i class="icon-img-up"></i></span>
+                                    <span class="sale-num">23</span>
+                                </li>
+                                <li>
+                                    <span class="sale-info">商品数量 <i class="icon-img-down"></i></span>
+                                    <span class="sale-num">87</span>
+                                </li>
+                                <li>
+                                    <span class="sale-info">总销售商品</span>
+                                    <span class="sale-num">2377</span>
+                                </li>
+                                <li>
+                                    <span class="sale-info">总库存商品</span>
+                                    <span class="sale-num">2570</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabbable tabbable-custom tabbable-custom-profile">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab_1_11" data-toggle="tab">我的售货机</a></li>
+                        <li class=""><a href="#tab_1_22" data-toggle="tab">我的商品</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_1_11">
+                            <div class="portlet-body" style="display: block;">
+                                @{ Html.RenderAction("MyMachine", "Account");}
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab_1_22">
+                            <div class="tab-pane active" id="tab_1_1_1">
+                                @{ Html.RenderAction("MyCommod", "Account");}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane profile-classic row-fluid" id="tab_1_2">
+            <div class="span2"><img src="@Model.PicUrl" alt=""></div>
+            <ul class="unstyled span10">
+                <li><span>用户名:</span> @Html.DisplayFor(model => model.LoginName)</li>
+                <li><span>姓名:</span> @Html.DisplayFor(model => model.Name)</li>
+                <li><span>公司名:</span> @Html.DisplayFor(model => model.CompanyName)</li>
+                <li><span>电话:</span> @Html.DisplayFor(model => model.Tel)</li>
+                <li><span>电子邮件:</span> <a href="#">@Html.DisplayFor(model => model.Email)</a></li>
+                <li><span>城市:</span>@Html.DisplayFor(model => model.City.CityName)@Html.DisplayFor(model => model.District.DistrictName)</li>
+                <li><span>地址:</span>@Html.DisplayFor(model => model.Address)</li>
+                <li>
+                    <span>状态:</span>@if (Model.IsEnabled == true)
+                    {
+                        @Html.Raw("<span class='label label-success'>状态正常</span>")
+                    }
+                    else
+                    {
+                        @Html.Raw("<span class='label label-danger'>已禁用</span>")
+                    }
+                </li>
+            </ul>
+        </div>
+        <div class="tab-pane row-fluid profile-account" id="tab_1_3">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="span3">
+                        <ul class="ver-inline-menu tabbable margin-bottom-10">
+                            <li class="active"><a data-toggle="tab" href="#tab_1-1"><i class="icon-cog"></i>修改个人信息</a><span class="after"></span></li>
+                            <li class=""><a data-toggle="tab" href="#tab_2-2"><i class="icon-picture"></i>修改头像</a></li>
+                        </ul>
+                    </div>
+                    <div class="span9">
+                        <div class="tab-content">
+                            <div id="tab_1-1" class="tab-pane active">
+                               
+
+                                <div style="height: auto;" id="accordion1-1" class="accordion collapse in">
+                                    @using (Html.BeginForm("UserDetails", "Account", FormMethod.Post, new { id = "UserDetailsForm", @class = "form-vertical" }))
+                                    { <div class="form-horizontal">
+                                          <div class="alert alert-success hide">
+                                              <button class="close" data-dismiss="alert"></button>
+                                              填写完毕，你现在可以提交表单了!
+                                          </div>
+                                          <div class="alert alert-error hide">
+                                              <button class="close" data-dismiss="alert"></button>
+                                              <span id="errorText">错误信息</span>
+                                              @Html.HiddenFor(model => model.Id)
+                                          </div>
+                                        <div class="control-group">
+                                            <label class="control-label">用户名：</label>
+                                            <div class="controls">
+                                                @Html.DisplayFor(model => model.LoginName)
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">姓名：</label>
+                                            <div class="controls">
+                                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "m-wrap span8" } })
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">电话：</label>
+                                            <div class="controls">
+                                                @Html.EditorFor(model => model.Tel, new { htmlAttributes = new { @class = "m-wrap span8" } })
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">电子邮件：</label>
+                                            <div class="controls">
+                                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "m-wrap span8" } })
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">公司名称：</label>
+                                            <div class="controls">
+                                                @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "m-wrap span8" } })
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">地区：</label>
+                                            <div class="controls">
+                                                @Html.Partial("Controls/RegionSelection")
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">地址：</label>
+                                            <div class="controls">
+                                                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "m-wrap span8" } })
+                                            </div>
+                                        </div>
+                                        <div class="submit-btn">
+                                            <button type="submit" name="btnSaveUser" class="btn green">保存</button>
+                                            <button type="reset" name="btnSaveUser" class="btn">重置表单</button>
+                                        </div>
+                                    </div>
+                                        }
+                                    </div>
+                            </div>
+                            <div id="tab_2-2" class="tab-pane">
+                                <div style="height: auto;" id="accordion2-2" class="accordion collapse in">
+                                    @using (Html.BeginForm("ChangeUserPic", "Account", FormMethod.Post, new { id = "UserPicForm", enctype = "multipart/form-data", @class = "form-vertical" }))
+                                    {
+                                                <p>图片仅限于.BMP .PNG .JPG .JPEG文件.</p>
+                                                <br>
+                                                <div class="controls">
+                                                    <div class="thumbnail" style="width: 291px;">
+                                                        <img id="showPic" src="@Model.PicUrl" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="space10"></div>
+                                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                    <div class="input-append">
+                                                        <div class="uneditable-input">
+                                                            <i class="icon-file fileupload-exists"></i>
+                                                            <span class="fileupload-preview"></span>
+                                                        </div>
+                                                        <span name="btnUploadImage" class="btn btn-file">
+                                                            <span class="fileupload-new">选择文件</span>
+                                                            <span class="fileupload-exists">重新选择</span>
+                                                            <input type="file" id="uploadImage" name="uploadImage" class="default" />
+                                                        </span>
+                                                        @*<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">删除</a>*@
+                                                        <button id="btnUploadImage" name="btnUploadImage" type="button" class="btn blue">上传</button>
+                                                    </div>
+                                                  
+                                                </div>
+                                                                                            <div class="clearfix"></div>
+                                                <div class="controls" style="display:none">
+                                                    <span class="label label-important">NOTE!</span>
+                                                    <span>提示信息.</span>
+                                                </div>
+                                                <div class="space10"></div>
+                                                <div class="submit-btn">
+                                                    <button type="submit" name="btnSaveUploadImage" class="btn green">保存</button>
+                                                    <button type="reset" name="btnSaveUploadImage" class="btn">重置表单</button>
+                                                </div>
+                                        <input type="hidden" name="userPic" id="userPic" value=""/>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="~/media/js/bootstrap-fileupload.js"></script>
+<script type="text/javascript" src="~/media/js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="~/media/js/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="~/media/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="~/media/myjs/PageScript/UserDetails.js"></script>

@@ -1,0 +1,1600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VEM.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="VEMStoreContainer">
+    <EntitySet Name="MachineModelSet" EntityType="VEM.Store.MachineModelSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="CitySet" EntityType="VEM.Store.CitySet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="DistrictSet" EntityType="VEM.Store.DistrictSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="UserRoleSet" EntityType="VEM.Store.UserRoleSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="RoleSet" EntityType="VEM.Store.RoleSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="PrivilegeSet" EntityType="VEM.Store.PrivilegeSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="MenuSet" EntityType="VEM.Store.MenuSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="ButtonSet" EntityType="VEM.Store.ButtonSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="CommodSet" EntityType="VEM.Store.CommodSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="SalesHistorySet" EntityType="VEM.Store.SalesHistorySet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="ContainerRoadSet" EntityType="VEM.Store.ContainerRoadSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="IconSet" EntityType="VEM.Store.IconSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="MachineSet" EntityType="VEM.Store.MachineSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="PersonSet" EntityType="VEM.Store.PersonSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="PayRecordSet" EntityType="VEM.Store.PayRecordSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="CouponSet" EntityType="VEM.Store.CouponSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="MemberCouponSet" EntityType="VEM.Store.MemberCouponSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="ShipmentStatusRecordSet" EntityType="VEM.Store.ShipmentStatusRecordSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="MachineTemSet" EntityType="VEM.Store.MachineTemSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="FaultSet" EntityType="VEM.Store.FaultSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="BrowserPrivilegeSet" EntityType="VEM.Store.BrowserPrivilegeSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="PersonSet_User" EntityType="VEM.Store.PersonSet_User" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="PersonSet_Member" EntityType="VEM.Store.PersonSet_Member" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <AssociationSet Name="CityDistrict" Association="VEM.Store.CityDistrict">
+      <End Role="City" EntitySet="CitySet" />
+      <End Role="District" EntitySet="DistrictSet" />
+    </AssociationSet>
+    <AssociationSet Name="CityMachine" Association="VEM.Store.CityMachine">
+      <End Role="City" EntitySet="CitySet" />
+      <End Role="Machine" EntitySet="MachineSet" />
+    </AssociationSet>
+    <AssociationSet Name="DistrictMachine" Association="VEM.Store.DistrictMachine">
+      <End Role="District" EntitySet="DistrictSet" />
+      <End Role="Machine" EntitySet="MachineSet" />
+    </AssociationSet>
+    <AssociationSet Name="UserUserRole" Association="VEM.Store.UserUserRole">
+      <End Role="User" EntitySet="PersonSet_User" />
+      <End Role="UserRole" EntitySet="UserRoleSet" />
+    </AssociationSet>
+    <AssociationSet Name="RoleUserRole" Association="VEM.Store.RoleUserRole">
+      <End Role="Role" EntitySet="RoleSet" />
+      <End Role="UserRole" EntitySet="UserRoleSet" />
+    </AssociationSet>
+    <AssociationSet Name="MenuButton" Association="VEM.Store.MenuButton">
+      <End Role="Menu" EntitySet="MenuSet" />
+      <End Role="Button" EntitySet="ButtonSet" />
+    </AssociationSet>
+    <AssociationSet Name="CommodContainerRoad" Association="VEM.Store.CommodContainerRoad">
+      <End Role="Commod" EntitySet="CommodSet" />
+      <End Role="ContainerRoad" EntitySet="ContainerRoadSet" />
+    </AssociationSet>
+    <AssociationSet Name="CommodSalesHistory" Association="VEM.Store.CommodSalesHistory">
+      <End Role="Commod" EntitySet="CommodSet" />
+      <End Role="SalesHistory" EntitySet="SalesHistorySet" />
+    </AssociationSet>
+    <AssociationSet Name="MachineModelMachine" Association="VEM.Store.MachineModelMachine">
+      <End Role="MachineModel" EntitySet="MachineModelSet" />
+      <End Role="Machine" EntitySet="MachineSet" />
+    </AssociationSet>
+    <AssociationSet Name="MachineContainerRoad" Association="VEM.Store.MachineContainerRoad">
+      <End Role="Machine" EntitySet="MachineSet" />
+      <End Role="ContainerRoad" EntitySet="ContainerRoadSet" />
+    </AssociationSet>
+    <AssociationSet Name="MachineSalesHistory" Association="VEM.Store.MachineSalesHistory">
+      <End Role="Machine" EntitySet="MachineSet" />
+      <End Role="SalesHistory" EntitySet="SalesHistorySet" />
+    </AssociationSet>
+    <AssociationSet Name="UserMachine" Association="VEM.Store.UserMachine">
+      <End Role="User" EntitySet="PersonSet_User" />
+      <End Role="Machine" EntitySet="MachineSet" />
+    </AssociationSet>
+    <AssociationSet Name="MemberPayRecord" Association="VEM.Store.MemberPayRecord">
+      <End Role="Member" EntitySet="PersonSet_Member" />
+      <End Role="PayRecord" EntitySet="PayRecordSet" />
+    </AssociationSet>
+    <AssociationSet Name="MemberMemberCoupon" Association="VEM.Store.MemberMemberCoupon">
+      <End Role="Member" EntitySet="PersonSet_Member" />
+      <End Role="MemberCoupon" EntitySet="MemberCouponSet" />
+    </AssociationSet>
+    <AssociationSet Name="CityUser" Association="VEM.Store.CityUser">
+      <End Role="City" EntitySet="CitySet" />
+      <End Role="User" EntitySet="PersonSet_User" />
+    </AssociationSet>
+    <AssociationSet Name="DistrictUser" Association="VEM.Store.DistrictUser">
+      <End Role="District" EntitySet="DistrictSet" />
+      <End Role="User" EntitySet="PersonSet_User" />
+    </AssociationSet>
+    <AssociationSet Name="MachineShipmentStatusRecord" Association="VEM.Store.MachineShipmentStatusRecord">
+      <End Role="Machine" EntitySet="MachineSet" />
+      <End Role="ShipmentStatusRecord" EntitySet="ShipmentStatusRecordSet" />
+    </AssociationSet>
+    <AssociationSet Name="CouponMemberCoupon" Association="VEM.Store.CouponMemberCoupon">
+      <End Role="Coupon" EntitySet="CouponSet" />
+      <End Role="MemberCoupon" EntitySet="MemberCouponSet" />
+    </AssociationSet>
+    <AssociationSet Name="CommodShipmentStatusRecord" Association="VEM.Store.CommodShipmentStatusRecord">
+      <End Role="Commod" EntitySet="CommodSet" />
+      <End Role="ShipmentStatusRecord" EntitySet="ShipmentStatusRecordSet" />
+    </AssociationSet>
+    <AssociationSet Name="MachineTemMachine" Association="VEM.Store.MachineTemMachine">
+      <End Role="MachineTem" EntitySet="MachineTemSet" />
+      <End Role="Machine" EntitySet="MachineSet" />
+    </AssociationSet>
+    <AssociationSet Name="MachineError" Association="VEM.Store.MachineError">
+      <End Role="Machine" EntitySet="MachineSet" />
+      <End Role="Error" EntitySet="FaultSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_inherits_Person" Association="VEM.Store.FK_User_inherits_Person">
+      <End Role="Person" EntitySet="PersonSet" />
+      <End Role="User" EntitySet="PersonSet_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Member_inherits_Person" Association="VEM.Store.FK_Member_inherits_Person">
+      <End Role="Person" EntitySet="PersonSet" />
+      <End Role="Member" EntitySet="PersonSet_Member" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="MachineModelSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContainerRoadCount" Type="int" Nullable="false" />
+    <Property Name="ModelCode" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CitySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CityName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DistrictSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DistrictName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="City_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRoleSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Role_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoleSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateUserID" Type="int" Nullable="true" />
+    <Property Name="CreateDate" Type="datetime" Nullable="true" />
+    <Property Name="ModifyUserID" Type="int" Nullable="true" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="true" />
+    <Property Name="IsEnable" Type="bit" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PrivilegeSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrivilegeMaster" Type="int" Nullable="false" />
+    <Property Name="PrivilegeMasterValue" Type="int" Nullable="false" />
+    <Property Name="PrivilegeAccess" Type="int" Nullable="false" />
+    <Property Name="PrivilegeAccessValue" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MenuSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MenuParentNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MenuUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MenuName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MenuOrder" Type="int" Nullable="false" />
+    <Property Name="IsVisible" Type="bit" Nullable="false" />
+    <Property Name="IsLeaf" Type="bit" Nullable="false" />
+    <Property Name="MenuPic" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ButtonSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BtnName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BtnNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InitStatus" Type="int" Nullable="false" />
+    <Property Name="BtnIcon" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Menu_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommodSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Pic" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CreateDate" Type="datetime" Nullable="true" />
+    <Property Name="Describle" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CreateUserID" Type="int" Nullable="true" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="true" />
+    <Property Name="ModifyUserID" Type="int" Nullable="true" />
+    <Property Name="Unit" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Capacity" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Price" Type="float" Nullable="true" />
+  </EntityType>
+  <EntityType Name="SalesHistorySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="SalesDate" Type="datetime" Nullable="false" />
+    <Property Name="SalePrice" Type="float" Nullable="false" />
+    <Property Name="Commod_Id" Type="int" Nullable="false" />
+    <Property Name="Machine_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContainerRoadSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupNumber" Type="int" Nullable="false" />
+    <Property Name="IsEnable" Type="bit" Nullable="false" />
+    <Property Name="Number" Type="int" Nullable="false" />
+    <Property Name="ReamainderCount" Type="int" Nullable="true" />
+    <Property Name="MaxCount" Type="int" Nullable="true" />
+    <Property Name="MotorStatus" Type="int" Nullable="true" />
+    <Property Name="Commod_Id" Type="int" Nullable="false" />
+    <Property Name="Machine_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IconSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Css" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="MachineSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Address" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CreateUserID" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifyUserID" Type="int" Nullable="true" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="true" />
+    <Property Name="MachineCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsOnline" Type="bit" Nullable="true" />
+    <Property Name="SoftwareId" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="HardwareId" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HighRefriTem" Type="float" Nullable="true" />
+    <Property Name="LowRefriTem" Type="float" Nullable="true" />
+    <Property Name="RentOrSell" Type="bit" Nullable="true" />
+    <Property Name="City_Id" Type="int" Nullable="false" />
+    <Property Name="District_Id" Type="int" Nullable="false" />
+    <Property Name="MachineModel_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoginName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoginPassword" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Tel" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PicUrl" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PayRecordSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Money" Type="decimal" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="true" />
+    <Property Name="IncomeOrExpenses" Type="int" Nullable="true" />
+    <Property Name="Member_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CouponSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="Begintime" Type="datetime" Nullable="false" />
+    <Property Name="EndTime" Type="datetime" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="CreateID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MemberCouponSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PayStatus" Type="bit" Nullable="false" />
+    <Property Name="Member_Id" Type="int" Nullable="false" />
+    <Property Name="Coupon_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShipmentStatusRecordSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdentityNumber" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ShipmentStatus" Type="int" Nullable="true" />
+    <Property Name="FailedCode" Type="int" Nullable="true" />
+    <Property Name="CreateDate" Type="datetime" Nullable="true" />
+    <Property Name="Machine_Id" Type="int" Nullable="false" />
+    <Property Name="Commod_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MachineTemSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tem1" Type="float" Nullable="true" />
+    <Property Name="Tem2" Type="float" Nullable="true" />
+    <Property Name="Tem3" Type="float" Nullable="true" />
+    <Property Name="Tem4" Type="float" Nullable="true" />
+    <Property Name="Machine_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FaultSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="true" />
+    <Property Name="Cause" Type="int" Nullable="true" />
+    <Property Name="CreateTime" Type="datetime" Nullable="true" />
+    <Property Name="SucceedTime" Type="datetime" Nullable="true" />
+    <Property Name="Machine_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BrowserPrivilegeSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MachinePrivilege" Type="bit" Nullable="false" />
+    <Property Name="CommodPrivilege" Type="bit" Nullable="false" />
+    <Property Name="MemberPrivilege" Type="bit" Nullable="false" />
+    <Property Name="PrivilegeMaster" Type="int" Nullable="false" />
+    <Property Name="PrivilegeMasterValue" Type="int" Nullable="false" />
+    <Property Name="CouponPrivilege" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonSet_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="CompanyName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CreateUserID" Type="int" Nullable="true" />
+    <Property Name="CreateDate" Type="datetime" Nullable="true" />
+    <Property Name="ModifyUserID" Type="int" Nullable="true" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="true" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="City_Id" Type="int" Nullable="false" />
+    <Property Name="District_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonSet_Member">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="CreateDate" Type="datetime" Nullable="true" />
+    <Property Name="CreateUserID" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="CityDistrict">
+    <End Role="City" Type="VEM.Store.CitySet" Multiplicity="1" />
+    <End Role="District" Type="VEM.Store.DistrictSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="District">
+        <PropertyRef Name="City_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CityMachine">
+    <End Role="City" Type="VEM.Store.CitySet" Multiplicity="1" />
+    <End Role="Machine" Type="VEM.Store.MachineSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Machine">
+        <PropertyRef Name="City_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DistrictMachine">
+    <End Role="District" Type="VEM.Store.DistrictSet" Multiplicity="1" />
+    <End Role="Machine" Type="VEM.Store.MachineSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Machine">
+        <PropertyRef Name="District_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserUserRole">
+    <End Role="User" Type="VEM.Store.PersonSet_User" Multiplicity="1" />
+    <End Role="UserRole" Type="VEM.Store.UserRoleSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleUserRole">
+    <End Role="Role" Type="VEM.Store.RoleSet" Multiplicity="1" />
+    <End Role="UserRole" Type="VEM.Store.UserRoleSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="Role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MenuButton">
+    <End Role="Menu" Type="VEM.Store.MenuSet" Multiplicity="1" />
+    <End Role="Button" Type="VEM.Store.ButtonSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Button">
+        <PropertyRef Name="Menu_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CommodContainerRoad">
+    <End Role="Commod" Type="VEM.Store.CommodSet" Multiplicity="1" />
+    <End Role="ContainerRoad" Type="VEM.Store.ContainerRoadSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContainerRoad">
+        <PropertyRef Name="Commod_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CommodSalesHistory">
+    <End Role="Commod" Type="VEM.Store.CommodSet" Multiplicity="1" />
+    <End Role="SalesHistory" Type="VEM.Store.SalesHistorySet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalesHistory">
+        <PropertyRef Name="Commod_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MachineModelMachine">
+    <End Role="MachineModel" Type="VEM.Store.MachineModelSet" Multiplicity="1" />
+    <End Role="Machine" Type="VEM.Store.MachineSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MachineModel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Machine">
+        <PropertyRef Name="MachineModel_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MachineContainerRoad">
+    <End Role="Machine" Type="VEM.Store.MachineSet" Multiplicity="1" />
+    <End Role="ContainerRoad" Type="VEM.Store.ContainerRoadSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machine">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContainerRoad">
+        <PropertyRef Name="Machine_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MachineSalesHistory">
+    <End Role="Machine" Type="VEM.Store.MachineSet" Multiplicity="1" />
+    <End Role="SalesHistory" Type="VEM.Store.SalesHistorySet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machine">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalesHistory">
+        <PropertyRef Name="Machine_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserMachine">
+    <End Role="User" Type="VEM.Store.PersonSet_User" Multiplicity="1" />
+    <End Role="Machine" Type="VEM.Store.MachineSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Machine">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MemberPayRecord">
+    <End Role="Member" Type="VEM.Store.PersonSet_Member" Multiplicity="1" />
+    <End Role="PayRecord" Type="VEM.Store.PayRecordSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PayRecord">
+        <PropertyRef Name="Member_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MemberMemberCoupon">
+    <End Role="Member" Type="VEM.Store.PersonSet_Member" Multiplicity="1" />
+    <End Role="MemberCoupon" Type="VEM.Store.MemberCouponSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MemberCoupon">
+        <PropertyRef Name="Member_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CityUser">
+    <End Role="City" Type="VEM.Store.CitySet" Multiplicity="1" />
+    <End Role="User" Type="VEM.Store.PersonSet_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="City_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DistrictUser">
+    <End Role="District" Type="VEM.Store.DistrictSet" Multiplicity="1" />
+    <End Role="User" Type="VEM.Store.PersonSet_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="District_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MachineShipmentStatusRecord">
+    <End Role="Machine" Type="VEM.Store.MachineSet" Multiplicity="1" />
+    <End Role="ShipmentStatusRecord" Type="VEM.Store.ShipmentStatusRecordSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machine">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShipmentStatusRecord">
+        <PropertyRef Name="Machine_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CouponMemberCoupon">
+    <End Role="Coupon" Type="VEM.Store.CouponSet" Multiplicity="1" />
+    <End Role="MemberCoupon" Type="VEM.Store.MemberCouponSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coupon">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MemberCoupon">
+        <PropertyRef Name="Coupon_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CommodShipmentStatusRecord">
+    <End Role="Commod" Type="VEM.Store.CommodSet" Multiplicity="1" />
+    <End Role="ShipmentStatusRecord" Type="VEM.Store.ShipmentStatusRecordSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShipmentStatusRecord">
+        <PropertyRef Name="Commod_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MachineTemMachine">
+    <End Role="MachineTem" Type="VEM.Store.MachineTemSet" Multiplicity="*" />
+    <End Role="Machine" Type="VEM.Store.MachineSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Machine">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MachineTem">
+        <PropertyRef Name="Machine_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MachineError">
+    <End Role="Machine" Type="VEM.Store.MachineSet" Multiplicity="1" />
+    <End Role="Error" Type="VEM.Store.FaultSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machine">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Error">
+        <PropertyRef Name="Machine_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_inherits_Person">
+    <End Role="Person" Type="VEM.Store.PersonSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="User" Type="VEM.Store.PersonSet_User" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Member_inherits_Person">
+    <End Role="Person" Type="VEM.Store.PersonSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Member" Type="VEM.Store.PersonSet_Member" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Member">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VEM" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="VemContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MachineModelSet" EntityType="VEM.MachineModel" />
+          <EntitySet Name="CitySet" EntityType="VEM.City" />
+          <EntitySet Name="DistrictSet" EntityType="VEM.District" />
+          <AssociationSet Name="CityDistrict" Association="VEM.CityDistrict">
+            <End Role="City" EntitySet="CitySet" />
+            <End Role="District" EntitySet="DistrictSet" />
+          </AssociationSet>
+          <AssociationSet Name="CityMachine" Association="VEM.CityMachine">
+            <End Role="City" EntitySet="CitySet" />
+            <End Role="Machine" EntitySet="MachineSet" />
+          </AssociationSet>
+          <AssociationSet Name="DistrictMachine" Association="VEM.DistrictMachine">
+            <End Role="District" EntitySet="DistrictSet" />
+            <End Role="Machine" EntitySet="MachineSet" />
+          </AssociationSet>
+          <EntitySet Name="UserRoleSet" EntityType="VEM.UserRole" />
+          <EntitySet Name="RoleSet" EntityType="VEM.Role" />
+          <AssociationSet Name="UserUserRole" Association="VEM.UserUserRole">
+            <End Role="User" EntitySet="PersonSet" />
+            <End Role="UserRole" EntitySet="UserRoleSet" />
+          </AssociationSet>
+          <AssociationSet Name="RoleUserRole" Association="VEM.RoleUserRole">
+            <End Role="Role" EntitySet="RoleSet" />
+            <End Role="UserRole" EntitySet="UserRoleSet" />
+          </AssociationSet>
+          <EntitySet Name="PrivilegeSet" EntityType="VEM.Privilege" />
+          <EntitySet Name="MenuSet" EntityType="VEM.Menu" />
+          <EntitySet Name="ButtonSet" EntityType="VEM.Button" />
+          <AssociationSet Name="MenuButton" Association="VEM.MenuButton">
+            <End Role="Menu" EntitySet="MenuSet" />
+            <End Role="Button" EntitySet="ButtonSet" />
+          </AssociationSet>
+          <EntitySet Name="CommodSet" EntityType="VEM.Commod" />
+          <EntitySet Name="SalesHistorySet" EntityType="VEM.SalesHistory" />
+          <EntitySet Name="ContainerRoadSet" EntityType="VEM.ContainerRoad" />
+          <AssociationSet Name="CommodContainerRoad" Association="VEM.CommodContainerRoad">
+            <End Role="Commod" EntitySet="CommodSet" />
+            <End Role="ContainerRoad" EntitySet="ContainerRoadSet" />
+          </AssociationSet>
+          <AssociationSet Name="CommodSalesHistory" Association="VEM.CommodSalesHistory">
+            <End Role="Commod" EntitySet="CommodSet" />
+            <End Role="SalesHistory" EntitySet="SalesHistorySet" />
+          </AssociationSet>
+          <EntitySet Name="IconSet" EntityType="VEM.Icon" />
+          <EntitySet Name="MachineSet" EntityType="VEM.Machine" />
+          <AssociationSet Name="MachineModelMachine" Association="VEM.MachineModelMachine">
+            <End Role="MachineModel" EntitySet="MachineModelSet" />
+            <End Role="Machine" EntitySet="MachineSet" />
+          </AssociationSet>
+          <AssociationSet Name="MachineContainerRoad" Association="VEM.MachineContainerRoad">
+            <End Role="Machine" EntitySet="MachineSet" />
+            <End Role="ContainerRoad" EntitySet="ContainerRoadSet" />
+          </AssociationSet>
+          <AssociationSet Name="MachineSalesHistory" Association="VEM.MachineSalesHistory">
+            <End Role="Machine" EntitySet="MachineSet" />
+            <End Role="SalesHistory" EntitySet="SalesHistorySet" />
+          </AssociationSet>
+          <AssociationSet Name="UserMachine" Association="VEM.UserMachine">
+            <End Role="User" EntitySet="PersonSet" />
+            <End Role="Machine" EntitySet="MachineSet" />
+          </AssociationSet>
+          <EntitySet Name="PersonSet" EntityType="VEM.Person" />
+          <EntitySet Name="PayRecordSet" EntityType="VEM.PayRecord" />
+          <AssociationSet Name="MemberPayRecord" Association="VEM.MemberPayRecord">
+            <End Role="Member" EntitySet="PersonSet" />
+            <End Role="PayRecord" EntitySet="PayRecordSet" />
+          </AssociationSet>
+          <EntitySet Name="CouponSet" EntityType="VEM.Coupon" />
+          <EntitySet Name="MemberCouponSet" EntityType="VEM.MemberCoupon" />
+          <AssociationSet Name="MemberMemberCoupon" Association="VEM.MemberMemberCoupon">
+            <End Role="Member" EntitySet="PersonSet" />
+            <End Role="MemberCoupon" EntitySet="MemberCouponSet" />
+          </AssociationSet>
+          <AssociationSet Name="CityUser" Association="VEM.CityUser">
+            <End Role="City" EntitySet="CitySet" />
+            <End Role="User" EntitySet="PersonSet" />
+          </AssociationSet>
+          <AssociationSet Name="DistrictUser" Association="VEM.DistrictUser">
+            <End Role="District" EntitySet="DistrictSet" />
+            <End Role="User" EntitySet="PersonSet" />
+          </AssociationSet>
+          <EntitySet Name="ShipmentStatusRecordSet" EntityType="VEM.ShipmentStatusRecord" />
+          <AssociationSet Name="MachineShipmentStatusRecord" Association="VEM.MachineShipmentStatusRecord">
+            <End Role="Machine" EntitySet="MachineSet" />
+            <End Role="ShipmentStatusRecord" EntitySet="ShipmentStatusRecordSet" />
+          </AssociationSet>
+          <AssociationSet Name="CouponMemberCoupon" Association="VEM.CouponMemberCoupon">
+            <End Role="Coupon" EntitySet="CouponSet" />
+            <End Role="MemberCoupon" EntitySet="MemberCouponSet" />
+          </AssociationSet>
+          <AssociationSet Name="CommodShipmentStatusRecord" Association="VEM.CommodShipmentStatusRecord">
+            <End Role="Commod" EntitySet="CommodSet" />
+            <End Role="ShipmentStatusRecord" EntitySet="ShipmentStatusRecordSet" />
+          </AssociationSet>
+          <EntitySet Name="MachineTemSet" EntityType="VEM.MachineTem" />
+          <AssociationSet Name="MachineTemMachine" Association="VEM.MachineTemMachine">
+            <End Role="MachineTem" EntitySet="MachineTemSet" />
+            <End Role="Machine" EntitySet="MachineSet" />
+          </AssociationSet>
+          <EntitySet Name="FaultSet" EntityType="VEM.Fault" />
+          <AssociationSet Name="MachineError" Association="VEM.MachineError">
+            <End Role="Machine" EntitySet="MachineSet" />
+            <End Role="Error" EntitySet="FaultSet" />
+          </AssociationSet>
+          <EntitySet Name="BrowserPrivilegeSet" EntityType="VEM.BrowserPrivilege" />
+          </EntityContainer>
+        <EntityType Name="User" BaseType="VEM.Person">
+          <NavigationProperty Name="UserRole" Relationship="VEM.UserUserRole" FromRole="User" ToRole="UserRole" />
+          <Property Name="CompanyName" Type="String" Nullable="true" />
+          <NavigationProperty Name="Machine" Relationship="VEM.UserMachine" FromRole="User" ToRole="Machine" />
+          <Property Name="CreateUserID" Type="Int32" Nullable="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="true" />
+          <Property Name="ModifyUserID" Type="Int32" Nullable="true" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="true" />
+          <NavigationProperty Name="City" Relationship="VEM.CityUser" FromRole="User" ToRole="City" />
+          <NavigationProperty Name="District" Relationship="VEM.DistrictUser" FromRole="User" ToRole="District" />
+        </EntityType>
+        <EntityType Name="Machine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <NavigationProperty Name="City" Relationship="VEM.CityMachine" FromRole="Machine" ToRole="City" />
+          <NavigationProperty Name="District" Relationship="VEM.DistrictMachine" FromRole="Machine" ToRole="District" />
+          <Property Name="Address" Type="String" Nullable="true" />
+          <Property Name="CreateUserID" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="ModifyUserID" Type="Int32" Nullable="true" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="true" />
+          <Property Name="MachineCode" Type="String" Nullable="false" />
+          <Property Name="IsOnline" Type="Boolean" Nullable="true" />
+          <Property Name="SoftwareId" Type="String" Nullable="true" />
+          <Property Name="HardwareId" Type="String" Nullable="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="MachineModel" Relationship="VEM.MachineModelMachine" FromRole="Machine" ToRole="MachineModel" />
+          <NavigationProperty Name="ContainerRoad" Relationship="VEM.MachineContainerRoad" FromRole="Machine" ToRole="ContainerRoad" />
+          <NavigationProperty Name="SalesHistory" Relationship="VEM.MachineSalesHistory" FromRole="Machine" ToRole="SalesHistory" />
+          <NavigationProperty Name="User" Relationship="VEM.UserMachine" FromRole="Machine" ToRole="User" />
+          <NavigationProperty Name="ShipmentStatusRecord" Relationship="VEM.MachineShipmentStatusRecord" FromRole="Machine" ToRole="ShipmentStatusRecord" />
+          <Property Name="HighRefriTem" Type="Double" Nullable="true" />
+          <Property Name="LowRefriTem" Type="Double" />
+          <NavigationProperty Name="MachineTem" Relationship="VEM.MachineTemMachine" FromRole="Machine" ToRole="MachineTem" />
+          <Property Name="RentOrSell" Type="Boolean" Nullable="true" />
+          <NavigationProperty Name="Error" Relationship="VEM.MachineError" FromRole="Machine" ToRole="Error" />
+        </EntityType>
+        <EntityType Name="MachineModel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="ContainerRoadCount" Type="Int32" Nullable="false" />
+          <Property Name="ModelCode" Type="String" Nullable="false" />
+          <NavigationProperty Name="Machine" Relationship="VEM.MachineModelMachine" FromRole="MachineModel" ToRole="Machine" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="District" Relationship="VEM.CityDistrict" FromRole="City" ToRole="District" />
+          <NavigationProperty Name="Machine" Relationship="VEM.CityMachine" FromRole="City" ToRole="Machine" />
+          <Property Name="CityName" Type="String" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="VEM.CityUser" FromRole="City" ToRole="User" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="City" Relationship="VEM.CityDistrict" FromRole="District" ToRole="City" />
+          <NavigationProperty Name="Machine" Relationship="VEM.DistrictMachine" FromRole="District" ToRole="Machine" />
+          <Property Name="DistrictName" Type="String" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="VEM.DistrictUser" FromRole="District" ToRole="User" />
+        </EntityType>
+        <Association Name="CityDistrict">
+          <End Type="VEM.City" Role="City" Multiplicity="1" />
+          <End Type="VEM.District" Role="District" Multiplicity="*" />
+        </Association>
+        <Association Name="CityMachine">
+          <End Type="VEM.City" Role="City" Multiplicity="1" />
+          <End Type="VEM.Machine" Role="Machine" Multiplicity="*" />
+        </Association>
+        <Association Name="DistrictMachine">
+          <End Type="VEM.District" Role="District" Multiplicity="1" />
+          <End Type="VEM.Machine" Role="Machine" Multiplicity="*" />
+        </Association>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="User" Relationship="VEM.UserUserRole" FromRole="UserRole" ToRole="User" />
+          <NavigationProperty Name="Role" Relationship="VEM.RoleUserRole" FromRole="UserRole" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="UserRole" Relationship="VEM.RoleUserRole" FromRole="Role" ToRole="UserRole" />
+          <Property Name="RoleName" Type="String" Nullable="false" />
+          <Property Name="CreateUserID" Type="Int32" Nullable="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="true" />
+          <Property Name="ModifyUserID" Type="Int32" Nullable="true" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="true" />
+          <Property Name="IsEnable" Type="Boolean" Nullable="true" />
+        </EntityType>
+        <Association Name="UserUserRole">
+          <End Type="VEM.User" Role="User" Multiplicity="1" />
+          <End Type="VEM.UserRole" Role="UserRole" Multiplicity="*" />
+        </Association>
+        <Association Name="RoleUserRole">
+          <End Type="VEM.Role" Role="Role" Multiplicity="1" />
+          <End Type="VEM.UserRole" Role="UserRole" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Privilege">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PrivilegeMaster" Type="Int32" Nullable="false" />
+          <Property Name="PrivilegeMasterValue" Type="Int32" Nullable="false" />
+          <Property Name="PrivilegeAccess" Type="Int32" Nullable="false" />
+          <Property Name="PrivilegeAccessValue" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Button" Relationship="VEM.MenuButton" FromRole="Menu" ToRole="Button" />
+          <Property Name="MenuNo" Type="String" Nullable="false" />
+          <Property Name="MenuParentNo" Type="String" Nullable="false" />
+          <Property Name="MenuUrl" Type="String" Nullable="false" />
+          <Property Name="MenuName" Type="String" Nullable="false" />
+          <Property Name="MenuOrder" Type="Int32" Nullable="false" />
+          <Property Name="IsVisible" Type="Boolean" Nullable="false" />
+          <Property Name="IsLeaf" Type="Boolean" Nullable="false" />
+          <Property Name="MenuPic" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Button">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Menu" Relationship="VEM.MenuButton" FromRole="Button" ToRole="Menu" />
+          <Property Name="BtnName" Type="String" Nullable="false" />
+          <Property Name="BtnNo" Type="String" Nullable="false" />
+          <Property Name="InitStatus" Type="Int32" Nullable="false" />
+          <Property Name="BtnIcon" Type="String" Nullable="true" />
+        </EntityType>
+        <Association Name="MenuButton">
+          <End Type="VEM.Menu" Role="Menu" Multiplicity="1" />
+          <End Type="VEM.Button" Role="Button" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Commod">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ContainerRoad" Relationship="VEM.CommodContainerRoad" FromRole="Commod" ToRole="ContainerRoad" />
+          <NavigationProperty Name="SalesHistory" Relationship="VEM.CommodSalesHistory" FromRole="Commod" ToRole="SalesHistory" />
+          <Property Name="Name" Type="String" Nullable="true" />
+          <Property Name="Pic" Type="String" Nullable="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="true" />
+          <Property Name="Describle" Type="String" Nullable="true" />
+          <Property Name="Code" Type="String" Nullable="true" />
+          <Property Name="CreateUserID" Type="Int32" Nullable="true" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="true" />
+          <Property Name="ModifyUserID" Type="Int32" Nullable="true" />
+          <Property Name="Unit" Type="String" Nullable="true" />
+          <Property Name="Capacity" Type="String" Nullable="true" />
+          <NavigationProperty Name="ShipmentStatusRecord" Relationship="VEM.CommodShipmentStatusRecord" FromRole="Commod" ToRole="ShipmentStatusRecord" />
+          <Property Name="Price" Type="Double" Nullable="true" />
+        </EntityType>
+        <EntityType Name="SalesHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="SalesDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Commod" Relationship="VEM.CommodSalesHistory" FromRole="SalesHistory" ToRole="Commod" />
+          <NavigationProperty Name="Machine" Relationship="VEM.MachineSalesHistory" FromRole="SalesHistory" ToRole="Machine" />
+          <Property Name="SalePrice" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContainerRoad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Commod" Relationship="VEM.CommodContainerRoad" FromRole="ContainerRoad" ToRole="Commod" />
+          <Property Name="GroupNumber" Type="Int32" Nullable="false" />
+          <Property Name="IsEnable" Type="Boolean" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Machine" Relationship="VEM.MachineContainerRoad" FromRole="ContainerRoad" ToRole="Machine" />
+          <Property Name="ReamainderCount" Type="Int32" Nullable="true" />
+          <Property Name="MaxCount" Type="Int32" Nullable="true" />
+          <Property Name="MotorStatus" Type="Int32" Nullable="true" />
+        </EntityType>
+        <Association Name="CommodContainerRoad">
+          <End Type="VEM.Commod" Role="Commod" Multiplicity="1" />
+          <End Type="VEM.ContainerRoad" Role="ContainerRoad" Multiplicity="*" />
+        </Association>
+        <Association Name="CommodSalesHistory">
+          <End Type="VEM.Commod" Role="Commod" Multiplicity="1" />
+          <End Type="VEM.SalesHistory" Role="SalesHistory" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Icon">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="true" />
+          <Property Name="Css" Type="String" Nullable="true" />
+        </EntityType>
+        <Association Name="MachineModelMachine">
+          <End Type="VEM.MachineModel" Role="MachineModel" Multiplicity="1" />
+          <End Type="VEM.Machine" Role="Machine" Multiplicity="*" />
+        </Association>
+        <Association Name="MachineContainerRoad">
+          <End Type="VEM.Machine" Role="Machine" Multiplicity="1" />
+          <End Type="VEM.ContainerRoad" Role="ContainerRoad" Multiplicity="*" />
+        </Association>
+        <Association Name="MachineSalesHistory">
+          <End Type="VEM.Machine" Role="Machine" Multiplicity="1" />
+          <End Type="VEM.SalesHistory" Role="SalesHistory" Multiplicity="*" />
+        </Association>
+        <Association Name="UserMachine">
+          <End Type="VEM.User" Role="User" Multiplicity="1" />
+          <End Type="VEM.Machine" Role="Machine" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginName" Type="String" Nullable="false" />
+          <Property Name="LoginPassword" Type="String" Nullable="false" />
+          <Property Name="IsEnabled" Type="Boolean" Nullable="true" />
+          <Property Name="Email" Type="String" Nullable="true" />
+          <Property Name="Tel" Type="String" Nullable="true" />
+          <Property Name="Address" Type="String" Nullable="true" />
+          <Property Name="Name" Type="String" Nullable="true" />
+          <Property Name="PicUrl" Type="String" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Member" BaseType="VEM.Person">
+          <NavigationProperty Name="PayRecord" Relationship="VEM.MemberPayRecord" FromRole="Member" ToRole="PayRecord" />
+          <NavigationProperty Name="MemberCoupon" Relationship="VEM.MemberMemberCoupon" FromRole="Member" ToRole="MemberCoupon" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="true" />
+          <Property Name="CreateUserID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PayRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Money" Type="Decimal" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="true" />
+          <Property Name="IncomeOrExpenses" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="Member" Relationship="VEM.MemberPayRecord" FromRole="PayRecord" ToRole="Member" />
+        </EntityType>
+        <Association Name="MemberPayRecord">
+          <End Type="VEM.Member" Role="Member" Multiplicity="1" />
+          <End Type="VEM.PayRecord" Role="PayRecord" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Coupon">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Value" Type="String" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Begintime" Type="DateTime" Nullable="false" />
+          <Property Name="EndTime" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="MemberCoupon" Relationship="VEM.CouponMemberCoupon" FromRole="Coupon" ToRole="MemberCoupon" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="CreateID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberCoupon">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Member" Relationship="VEM.MemberMemberCoupon" FromRole="MemberCoupon" ToRole="Member" />
+          <Property Name="PayStatus" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Coupon" Relationship="VEM.CouponMemberCoupon" FromRole="MemberCoupon" ToRole="Coupon" />
+        </EntityType>
+        <Association Name="MemberMemberCoupon">
+          <End Type="VEM.Member" Role="Member" Multiplicity="1" />
+          <End Type="VEM.MemberCoupon" Role="MemberCoupon" Multiplicity="*" />
+        </Association>
+        <Association Name="CityUser">
+          <End Type="VEM.City" Role="City" Multiplicity="1" />
+          <End Type="VEM.User" Role="User" Multiplicity="*" />
+        </Association>
+        <Association Name="DistrictUser">
+          <End Type="VEM.District" Role="District" Multiplicity="1" />
+          <End Type="VEM.User" Role="User" Multiplicity="*" />
+        </Association>
+        <EntityType Name="ShipmentStatusRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdentityNumber" Type="String" Nullable="true" />
+          <Property Name="ShipmentStatus" Type="Int32" Nullable="true" />
+          <Property Name="FailedCode" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="Machine" Relationship="VEM.MachineShipmentStatusRecord" FromRole="ShipmentStatusRecord" ToRole="Machine" />
+          <NavigationProperty Name="Commod" Relationship="VEM.CommodShipmentStatusRecord" FromRole="ShipmentStatusRecord" ToRole="Commod" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="true" />
+        </EntityType>
+        <Association Name="MachineShipmentStatusRecord">
+          <End Type="VEM.Machine" Role="Machine" Multiplicity="1" />
+          <End Type="VEM.ShipmentStatusRecord" Role="ShipmentStatusRecord" Multiplicity="*" />
+        </Association>
+        <Association Name="CouponMemberCoupon">
+          <End Type="VEM.Coupon" Role="Coupon" Multiplicity="1" />
+          <End Type="VEM.MemberCoupon" Role="MemberCoupon" Multiplicity="*" />
+        </Association>
+        <Association Name="CommodShipmentStatusRecord">
+          <End Type="VEM.Commod" Role="Commod" Multiplicity="1" />
+          <End Type="VEM.ShipmentStatusRecord" Role="ShipmentStatusRecord" Multiplicity="*" />
+        </Association>
+        <EntityType Name="MachineTem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tem1" Type="Double" Nullable="true" />
+          <Property Name="Tem2" Type="Double" Nullable="true" />
+          <Property Name="Tem3" Type="Double" Nullable="true" />
+          <Property Name="Tem4" Type="Double" Nullable="true" />
+          <NavigationProperty Name="Machine" Relationship="VEM.MachineTemMachine" FromRole="MachineTem" ToRole="Machine" />
+        </EntityType>
+        <Association Name="MachineTemMachine">
+          <End Type="VEM.MachineTem" Role="MachineTem" Multiplicity="1" />
+          <End Type="VEM.Machine" Role="Machine" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Fault">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Machine" Relationship="VEM.MachineError" FromRole="Error" ToRole="Machine" />
+          <Property Name="Status" Type="Int32" Nullable="true" />
+          <Property Name="Cause" Type="Int32" Nullable="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="true" />
+          <Property Name="SucceedTime" Type="DateTime" Nullable="true" />
+        </EntityType>
+        <Association Name="MachineError">
+          <End Type="VEM.Machine" Role="Machine" Multiplicity="1" />
+          <End Type="VEM.Fault" Role="Error" Multiplicity="*" />
+        </Association>
+        <EntityType Name="BrowserPrivilege">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MachinePrivilege" Type="Boolean" Nullable="false" />
+          <Property Name="CommodPrivilege" Type="Boolean" Nullable="false" />
+          <Property Name="MemberPrivilege" Type="Boolean" Nullable="false" />
+          <Property Name="PrivilegeMaster" Type="Int32" Nullable="false" />
+          <Property Name="PrivilegeMasterValue" Type="Int32" Nullable="false" />
+          <Property Name="CouponPrivilege" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VEMStoreContainer" CdmEntityContainer="VemContainer">
+    <EntitySetMapping Name="MachineModelSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.MachineModel)">
+        <MappingFragment StoreEntitySet="MachineModelSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContainerRoadCount" ColumnName="ContainerRoadCount" />
+          <ScalarProperty Name="ModelCode" ColumnName="ModelCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CitySet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.City)">
+        <MappingFragment StoreEntitySet="CitySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DistrictSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.District)">
+        <MappingFragment StoreEntitySet="DistrictSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoleSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.UserRole)">
+        <MappingFragment StoreEntitySet="UserRoleSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.Role)">
+        <MappingFragment StoreEntitySet="RoleSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyUserID" ColumnName="ModifyUserID" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrivilegeSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.Privilege)">
+        <MappingFragment StoreEntitySet="PrivilegeSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PrivilegeMaster" ColumnName="PrivilegeMaster" />
+          <ScalarProperty Name="PrivilegeMasterValue" ColumnName="PrivilegeMasterValue" />
+          <ScalarProperty Name="PrivilegeAccess" ColumnName="PrivilegeAccess" />
+          <ScalarProperty Name="PrivilegeAccessValue" ColumnName="PrivilegeAccessValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MenuSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.Menu)">
+        <MappingFragment StoreEntitySet="MenuSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MenuNo" ColumnName="MenuNo" />
+          <ScalarProperty Name="MenuParentNo" ColumnName="MenuParentNo" />
+          <ScalarProperty Name="MenuUrl" ColumnName="MenuUrl" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="MenuOrder" ColumnName="MenuOrder" />
+          <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+          <ScalarProperty Name="IsLeaf" ColumnName="IsLeaf" />
+          <ScalarProperty Name="MenuPic" ColumnName="MenuPic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ButtonSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.Button)">
+        <MappingFragment StoreEntitySet="ButtonSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BtnName" ColumnName="BtnName" />
+          <ScalarProperty Name="BtnNo" ColumnName="BtnNo" />
+          <ScalarProperty Name="InitStatus" ColumnName="InitStatus" />
+          <ScalarProperty Name="BtnIcon" ColumnName="BtnIcon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommodSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.Commod)">
+        <MappingFragment StoreEntitySet="CommodSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Pic" ColumnName="Pic" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Describle" ColumnName="Describle" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="ModifyUserID" ColumnName="ModifyUserID" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesHistorySet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.SalesHistory)">
+        <MappingFragment StoreEntitySet="SalesHistorySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="SalesDate" ColumnName="SalesDate" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContainerRoadSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.ContainerRoad)">
+        <MappingFragment StoreEntitySet="ContainerRoadSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GroupNumber" ColumnName="GroupNumber" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="ReamainderCount" ColumnName="ReamainderCount" />
+          <ScalarProperty Name="MaxCount" ColumnName="MaxCount" />
+          <ScalarProperty Name="MotorStatus" ColumnName="MotorStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IconSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.Icon)">
+        <MappingFragment StoreEntitySet="IconSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Css" ColumnName="Css" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MachineSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.Machine)">
+        <MappingFragment StoreEntitySet="MachineSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyUserID" ColumnName="ModifyUserID" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="MachineCode" ColumnName="MachineCode" />
+          <ScalarProperty Name="IsOnline" ColumnName="IsOnline" />
+          <ScalarProperty Name="SoftwareId" ColumnName="SoftwareId" />
+          <ScalarProperty Name="HardwareId" ColumnName="HardwareId" />
+          <ScalarProperty Name="HighRefriTem" ColumnName="HighRefriTem" />
+          <ScalarProperty Name="LowRefriTem" ColumnName="LowRefriTem" />
+          <ScalarProperty Name="RentOrSell" ColumnName="RentOrSell" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.Person)">
+        <MappingFragment StoreEntitySet="PersonSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="LoginPassword" ColumnName="LoginPassword" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.User)">
+        <MappingFragment StoreEntitySet="PersonSet_User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyUserID" ColumnName="ModifyUserID" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.Member)">
+        <MappingFragment StoreEntitySet="PersonSet_Member">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PayRecordSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.PayRecord)">
+        <MappingFragment StoreEntitySet="PayRecordSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Money" ColumnName="Money" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="IncomeOrExpenses" ColumnName="IncomeOrExpenses" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CouponSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.Coupon)">
+        <MappingFragment StoreEntitySet="CouponSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Begintime" ColumnName="Begintime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberCouponSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.MemberCoupon)">
+        <MappingFragment StoreEntitySet="MemberCouponSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PayStatus" ColumnName="PayStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipmentStatusRecordSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.ShipmentStatusRecord)">
+        <MappingFragment StoreEntitySet="ShipmentStatusRecordSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+          <ScalarProperty Name="ShipmentStatus" ColumnName="ShipmentStatus" />
+          <ScalarProperty Name="FailedCode" ColumnName="FailedCode" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MachineTemSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.MachineTem)">
+        <MappingFragment StoreEntitySet="MachineTemSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Tem1" ColumnName="Tem1" />
+          <ScalarProperty Name="Tem2" ColumnName="Tem2" />
+          <ScalarProperty Name="Tem3" ColumnName="Tem3" />
+          <ScalarProperty Name="Tem4" ColumnName="Tem4" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FaultSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.Fault)">
+        <MappingFragment StoreEntitySet="FaultSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Cause" ColumnName="Cause" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="SucceedTime" ColumnName="SucceedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BrowserPrivilegeSet">
+      <EntityTypeMapping TypeName="IsTypeOf(VEM.BrowserPrivilege)">
+        <MappingFragment StoreEntitySet="BrowserPrivilegeSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MachinePrivilege" ColumnName="MachinePrivilege" />
+          <ScalarProperty Name="CommodPrivilege" ColumnName="CommodPrivilege" />
+          <ScalarProperty Name="MemberPrivilege" ColumnName="MemberPrivilege" />
+          <ScalarProperty Name="PrivilegeMaster" ColumnName="PrivilegeMaster" />
+          <ScalarProperty Name="PrivilegeMasterValue" ColumnName="PrivilegeMasterValue" />
+          <ScalarProperty Name="CouponPrivilege" ColumnName="CouponPrivilege" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CityDistrict" TypeName="VEM.CityDistrict" StoreEntitySet="DistrictSet">
+      <EndProperty Name="City">
+        <ScalarProperty Name="Id" ColumnName="City_Id" />
+      </EndProperty>
+      <EndProperty Name="District">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CityMachine" TypeName="VEM.CityMachine" StoreEntitySet="MachineSet">
+      <EndProperty Name="City">
+        <ScalarProperty Name="Id" ColumnName="City_Id" />
+      </EndProperty>
+      <EndProperty Name="Machine">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DistrictMachine" TypeName="VEM.DistrictMachine" StoreEntitySet="MachineSet">
+      <EndProperty Name="District">
+        <ScalarProperty Name="Id" ColumnName="District_Id" />
+      </EndProperty>
+      <EndProperty Name="Machine">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserUserRole" TypeName="VEM.UserUserRole" StoreEntitySet="UserRoleSet">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="User_Id" />
+      </EndProperty>
+      <EndProperty Name="UserRole">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RoleUserRole" TypeName="VEM.RoleUserRole" StoreEntitySet="UserRoleSet">
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="Role_Id" />
+      </EndProperty>
+      <EndProperty Name="UserRole">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MenuButton" TypeName="VEM.MenuButton" StoreEntitySet="ButtonSet">
+      <EndProperty Name="Menu">
+        <ScalarProperty Name="Id" ColumnName="Menu_Id" />
+      </EndProperty>
+      <EndProperty Name="Button">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CommodContainerRoad" TypeName="VEM.CommodContainerRoad" StoreEntitySet="ContainerRoadSet">
+      <EndProperty Name="Commod">
+        <ScalarProperty Name="Id" ColumnName="Commod_Id" />
+      </EndProperty>
+      <EndProperty Name="ContainerRoad">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CommodSalesHistory" TypeName="VEM.CommodSalesHistory" StoreEntitySet="SalesHistorySet">
+      <EndProperty Name="Commod">
+        <ScalarProperty Name="Id" ColumnName="Commod_Id" />
+      </EndProperty>
+      <EndProperty Name="SalesHistory">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MachineModelMachine" TypeName="VEM.MachineModelMachine" StoreEntitySet="MachineSet">
+      <EndProperty Name="MachineModel">
+        <ScalarProperty Name="Id" ColumnName="MachineModel_Id" />
+      </EndProperty>
+      <EndProperty Name="Machine">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MachineContainerRoad" TypeName="VEM.MachineContainerRoad" StoreEntitySet="ContainerRoadSet">
+      <EndProperty Name="Machine">
+        <ScalarProperty Name="Id" ColumnName="Machine_Id" />
+      </EndProperty>
+      <EndProperty Name="ContainerRoad">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MachineSalesHistory" TypeName="VEM.MachineSalesHistory" StoreEntitySet="SalesHistorySet">
+      <EndProperty Name="Machine">
+        <ScalarProperty Name="Id" ColumnName="Machine_Id" />
+      </EndProperty>
+      <EndProperty Name="SalesHistory">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserMachine" TypeName="VEM.UserMachine" StoreEntitySet="MachineSet">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="User_Id" />
+      </EndProperty>
+      <EndProperty Name="Machine">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MemberPayRecord" TypeName="VEM.MemberPayRecord" StoreEntitySet="PayRecordSet">
+      <EndProperty Name="Member">
+        <ScalarProperty Name="Id" ColumnName="Member_Id" />
+      </EndProperty>
+      <EndProperty Name="PayRecord">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MemberMemberCoupon" TypeName="VEM.MemberMemberCoupon" StoreEntitySet="MemberCouponSet">
+      <EndProperty Name="Member">
+        <ScalarProperty Name="Id" ColumnName="Member_Id" />
+      </EndProperty>
+      <EndProperty Name="MemberCoupon">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CityUser" TypeName="VEM.CityUser" StoreEntitySet="PersonSet_User">
+      <EndProperty Name="City">
+        <ScalarProperty Name="Id" ColumnName="City_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DistrictUser" TypeName="VEM.DistrictUser" StoreEntitySet="PersonSet_User">
+      <EndProperty Name="District">
+        <ScalarProperty Name="Id" ColumnName="District_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MachineShipmentStatusRecord" TypeName="VEM.MachineShipmentStatusRecord" StoreEntitySet="ShipmentStatusRecordSet">
+      <EndProperty Name="Machine">
+        <ScalarProperty Name="Id" ColumnName="Machine_Id" />
+      </EndProperty>
+      <EndProperty Name="ShipmentStatusRecord">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CouponMemberCoupon" TypeName="VEM.CouponMemberCoupon" StoreEntitySet="MemberCouponSet">
+      <EndProperty Name="Coupon">
+        <ScalarProperty Name="Id" ColumnName="Coupon_Id" />
+      </EndProperty>
+      <EndProperty Name="MemberCoupon">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CommodShipmentStatusRecord" TypeName="VEM.CommodShipmentStatusRecord" StoreEntitySet="ShipmentStatusRecordSet">
+      <EndProperty Name="Commod">
+        <ScalarProperty Name="Id" ColumnName="Commod_Id" />
+      </EndProperty>
+      <EndProperty Name="ShipmentStatusRecord">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MachineTemMachine" TypeName="VEM.MachineTemMachine" StoreEntitySet="MachineTemSet">
+      <EndProperty Name="Machine">
+        <ScalarProperty Name="Id" ColumnName="Machine_Id" />
+      </EndProperty>
+      <EndProperty Name="MachineTem">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MachineError" TypeName="VEM.MachineError" StoreEntitySet="FaultSet">
+      <EndProperty Name="Machine">
+        <ScalarProperty Name="Id" ColumnName="Machine_Id" />
+      </EndProperty>
+      <EndProperty Name="Error">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="False" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <edmx:DesignerProperty Name="ProcessDependentTemplatesOnSave" Value="False" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

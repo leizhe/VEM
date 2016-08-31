@@ -1,0 +1,67 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row-fluid">
+    <div class="span12">
+        <h3 class="page-title">
+            修改密码 <small>修改你的登录密码</small>
+        </h3>
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-home"></i>
+                @Html.MvcSiteMap().SiteMapPath()
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="portlet box  light-grey">
+            <div class="portlet-title">
+                <div class="caption"><i class="icon-reorder"></i>修改密码</div>
+            </div>
+            <div class="portlet-body form">
+                @using (Html.BeginForm("EditPass", "Account", FormMethod.Post, new { id = "EditPassForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        <div class="alert alert-error hide" id="errorMsg">
+                            <button class="close" data-dismiss="alert"></button>
+                            <span id="errorText">错误信息</span>
+                        </div>
+                        <div class="alert alert-success hide">
+                            <button class="close" data-dismiss="alert"></button>
+                            填写完毕，你现在可以提交表单了!
+                        </div>
+                        <div class="alert alert-error hide" id="errorMsg">
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">原密码<span class="required">*</span></label>
+                            <div class="controls">
+                                @Html.Password("oldPass", null, new { @class = "span6 m-wrap" })
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">新密码<span class="required">*</span></label>
+                            <div class="controls">
+                                @Html.Password("newPass", null, new { @class = "span6 m-wrap" })
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">再次输入新密码<span class="required">*</span></label>
+                            <div class="controls">
+                                @Html.Password("rnewPass", null, new { @class = "span6 m-wrap" })
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" name="btnSavePass" class="btn green">保存新密码</button>
+                            <button type="reset" name="btnReset" class="btn">重新填写</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="~/media/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="~/media/myjs/PageScript/EditPass.js"></script>

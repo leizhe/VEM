@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D80D7454-53B3-4C0E-AC08-EDC485C4B3E3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VEM.Business</RootNamespace>
+    <AssemblyName>VEM.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessAbstract.cs" />
+    <Compile Include="BusinessOperations.cs" />
+    <Compile Include="Business\AccountBusiness.cs" />
+    <Compile Include="Business\CommodBusiness.cs" />
+    <Compile Include="Business\MachineBusiness.cs" />
+    <Compile Include="Business\MemberBusiness.cs" />
+    <Compile Include="Business\MonitorBusiness.cs" />
+    <Compile Include="Business\PrivilegeBusiness.cs" />
+    <Compile Include="Business\SystemBusiness.cs" />
+    <Compile Include="Exceptions\AccountException\AccountNotAvalibleException.cs" />
+    <Compile Include="Exceptions\AccountException\WrongOldPasswordException .cs" />
+    <Compile Include="Exceptions\AccountException\WrongTelOrPasswordException.cs" />
+    <Compile Include="Exceptions\CommodException\CommodNotNullException.cs" />
+    <Compile Include="Exceptions\CommodException\WrongCommodException.cs" />
+    <Compile Include="Exceptions\MachineException\ContainerRoadNotNullException.cs" />
+    <Compile Include="Exceptions\MachineException\MachineNotNullException.cs" />
+    <Compile Include="Exceptions\MachineException\SalesHistoryNotNullException.cs" />
+    <Compile Include="Exceptions\MemberException\MemberNotNullException.cs" />
+    <Compile Include="Exceptions\PrivilegeException\AccountExistedException.cs" />
+    <Compile Include="Exceptions\PrivilegeException\ButtonNullException.cs" />
+    <Compile Include="Exceptions\PrivilegeException\EmailExistedException.cs" />
+    <Compile Include="Exceptions\PrivilegeException\TelExistedException.cs" />
+    <Compile Include="Exceptions\SystemException\ButtonNotNullException.cs" />
+    <Compile Include="Exceptions\SystemException\ChildMenuNotNullException.cs" />
+    <Compile Include="Exceptions\SystemException\CityNotNullException.cs" />
+    <Compile Include="Exceptions\SystemException\DistrictNotNullException.cs" />
+    <Compile Include="Exceptions\VemException.cs" />
+    <Compile Include="MessageAbstract.cs" />
+    <Compile Include="Message\ListMessage.cs" />
+    <Compile Include="Message\UtilMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Dynamic.cs" />
+    <Compile Include="Util\EntityStatus.cs" />
+    <Compile Include="Util\StatusCode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VEM.Data\VEM.Data.csproj">
+      <Project>{b21ed813-9274-4455-aa4c-7217bd7626b3}</Project>
+      <Name>VEM.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VEM.Model\VEM.Model.csproj">
+      <Project>{4c262513-947a-4e07-b4ca-3cb3dbd17825}</Project>
+      <Name>VEM.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

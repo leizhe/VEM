@@ -1,0 +1,106 @@
+﻿@model IEnumerable<VEM.Model.Commod>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var containerRoad = ViewBag.containerRoad as VEM.Model.ContainerRoad;
+}
+
+
+<link rel="stylesheet" type="text/css" href="~/media/css/select2_metro.css" />
+<link rel="stylesheet" type="text/css" href="~/media/css/chosen.css" />
+<div class="row-fluid">
+    <div class="span12">
+        <h3 class="page-title">
+            货道管理 <small>在本页可以修改这个货道信息和为货道添加商品</small>
+        </h3>
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-home"></i>
+                @Html.MvcSiteMap().SiteMapPath()
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span5">
+        <div class="portlet box  light-grey">
+            <div class="portlet-title">
+                <div class="caption"><i class="icon-reorder"></i>货道管理</div>
+            </div>
+            <div class="portlet-body form">
+                <h4 id="CommodMsg"></h4>
+                @using (Html.BeginForm("ContainerRoadCreateEdit", "Commod", FormMethod.Post, new { id = "ContainerRoadCreateEditForm", @class = "form-vertical" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        <div class="alert alert-error hide">
+                            <button class="close" data-dismiss="alert"></button>
+                            <span id="errorText">错误信息</span>
+                        </div>
+                        <div class="alert alert-success hide">
+                            <button class="close" data-dismiss="alert"></button>
+                            填写完毕，你现在可以提交表单了!
+                        </div>
+                        @Html.HiddenFor(model => containerRoad.Id)
+                        <input type="hidden" id="MachineId" name="MachineId" value="@ViewBag.MachineId" />
+                        <input type="hidden" id="RoadNum" name="RoadNum" value="@ViewBag.RoadNum" />
+                        <div class="control-group">
+                            <label class="control-label">机器编号<span class="required">*</span></label>
+                            <div class="control-label">
+                                @ViewBag.MachineCode
+                            </div>
+                            
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">货道号<span class="required">*</span></label>
+                            <div class="control-label">
+                                <code>@ViewBag.RoadNum</code>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">商品名称<span class="required">*</span></label>
+                            <div class="control-label" id="CommodNameDiv">
+                                请先选择一种商品
+                            </div>
+                            <input type="hidden" id="CommodId" name="CommodId" value="" />
+                        </div>
+                        
+                        <div class="control-group">
+                            <label class="control-label">货道状态<span class="required">*</span></label>
+                            <div class="controls">
+                                <label class="radio">
+                                    @Html.RadioButtonFor(model => containerRoad.IsEnable, true, new { @id = "radio1", @name = "rdolstState", @checked = "checked" })启用
+                                </label>
+                                <label class="radio">
+                                    @Html.RadioButtonFor(model => containerRoad.IsEnable, false, new { @id = "radio0", @name = "rdolstState" })禁用
+                                </label>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">商品库存<span class="required">*</span></label>
+                            <div class="controls">
+                                @Html.EditorFor(model => containerRoad.ReamainderCount, new { htmlAttributes = new { @class = "span6 m-wrap" } })
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">货道容量<span class="required">*</span></label>
+                            <div class="controls">
+                                @Html.EditorFor(model => containerRoad.MaxCount, new { htmlAttributes = new { @class = "span6 m-wrap" } })
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn green">保存</button>
+                            <button type="reset" class="btn">重置表单</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    @*@{Html.RenderAction("CommodSelect", "Commod");}*@
+    @Html.Partial("CommodSelect")
+</div>
+<div>
+    @Html.ActionLink("返回", "CommodSupply")
+</div>
+<script type="text/javascript" src="~/media/js/jquery.validate.min.js"></script>
+<script src='@Url.Content("~/Media/myjs/PageScript/ContainerRoadCreateEdit.js")'></script>

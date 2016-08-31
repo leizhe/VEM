@@ -1,0 +1,61 @@
+﻿@model IEnumerable<VEM.Model.Commod>
+
+<table class="table table-striped table-bordered table-hover" id="sample_1">
+    <thead>
+    <tr>
+        <th>
+        </th>
+        <th>
+            商品名称
+        </th>
+        <th>
+            条码编号
+        </th>
+        <th>
+            单位
+        </th>
+        <th>
+            容量
+        </th>
+        <th>
+            价格(元)
+        </th>
+        <th>
+            描述
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr class="odd gradeX">
+            <td style="width: 40px;">
+                <img src="@item.Pic" alt="" style="width: 40px;">
+            </td>
+            <td style="vertical-align: middle">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td style="vertical-align: middle">
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td style="vertical-align: middle">
+                @Html.DisplayFor(modelItem => item.Unit)
+            </td>
+            <td style="vertical-align: middle">
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td style="vertical-align: middle">
+                <code>@Html.DisplayFor(modelItem => item.Price)</code>
+            </td>
+            <td style="vertical-align: middle">
+                @Html.DisplayFor(modelItem => item.Describle)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<span style="float: right;">
+    <a class="more" href="/Commod/CommodIndex">
+        查看更多
+    </a>
+</span>

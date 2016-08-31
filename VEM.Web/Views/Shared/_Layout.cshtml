@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>VemSystem | 首页</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    @Styles.Render("~/Media/GlpbalCss")
+    @Scripts.Render("~/Media/CorePlugins")
+    <link rel="shortcut icon" href="/Media/image/favicon.ico" />
+</head>
+<body class="page-header-fixed page-footer-fixed">
+    @{Html.RenderAction("GetHeader", "Home");}
+    <div class="page-container">
+        <div class="page-sidebar nav-collapse collapse">
+            <nav>
+                @{Html.RenderAction("GetMenu", "Home");}
+            </nav>
+        </div>
+        <div class="page-content">
+            <div class="container-fluid">
+                @Scripts.Render("~/Media/App")
+                @Html.Partial("Controls/ModalDialogs")
+                @Html.Partial("Controls/ModalHtmlPage")
+                @RenderBody()
+                @Scripts.Render("~/Media/UtilPlugins")
+            </div>
+        </div>
+    </div>
+    @Html.Partial("Controls/Footer")
+    @Html.Raw(@ViewBag.js)
+</body>
+</html>

@@ -1,0 +1,91 @@
+﻿@model IEnumerable<VEM.Model.MemberCoupon>
+@{
+    VEM.Model.Member member = ViewBag.thisMember as VEM.Model.Member;
+}
+<div class="portlet box light-grey">
+    <div class="portlet-title">
+        <div class="caption"><i class="icon-globe"></i>@Html.Raw(member.LoginName + "的优惠券")</div>
+    </div>
+    <div class="portlet-body">
+        <div class="clearfix">
+            <div class="btn-group">
+                <a href="Javascript:;" mid="@member.Id" onclick="AddCoupon(this);" class="btn mini blue">@Html.Raw("为" + member.LoginName + "添加优惠券")</a>
+            </div>
+
+        </div>
+        @if (Model.Any())
+        {
+            <table class="table table-striped table-bordered table-hover" id="sample_1">
+                <thead>
+                    <tr>
+                        <th>
+                            类型
+                        </th>
+                        <th>
+                            值
+                        </th>
+                        <th>
+                            状态
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="odd gradeX">
+                            <td>
+                                @Html.Raw(item.Coupon.Type.ToEnumString(typeof(VEM.Business.Util.CouponType)))
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Coupon.Value)
+                                @if (item.Coupon.Type == (int)VEM.Business.Util.CouponType.现金券)
+                                {
+                                    <text>元</text>
+                                }
+                                else
+                                {
+                                    <text>折</text>
+                                }
+
+
+                            </td>
+                            <td>
+                                @if (item.Coupon.Status == true && item.Coupon.EndTime > DateTime.Now)
+                                {
+                                    @Html.Raw("<span class='label label-success'>可用</span>")
+                                }
+                                else if (item.Coupon.EndTime < DateTime.Now)
+                                {
+                                    @Html.Raw("<span class='label label-warning'>已过期</span>")
+                                }
+                                else
+                                {
+                                    @Html.Raw("<span class='label label-danger'>不可用</span>")
+                                }
+                            </td>
+                            <td>
+                                @if (!item.PayStatus)
+                                {
+                                    @Html.Raw("<span class='label label-danger'>已使用</span>")
+
+                                }
+                                else
+                                {
+                                    @Html.Raw("<span class='label label-success'>未使用</span>")
+                                }
+                            </td>
+                            <td>
+                                <a url="~/Member/MemberCouponDelete?&id=@item.Id" onclick="DelMemberCoupon(this);" class="btn mini red delete-link"><i class="icon-remove"></i> 删除</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div>@Html.Raw(member.LoginName + "没有优惠券")</div>
+        }
+    </div>
+</div>

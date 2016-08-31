@@ -1,0 +1,106 @@
+﻿@model VEM.Model.Member
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row-fluid">
+    <div class="span12">
+        <h3 class="page-title">
+            @ViewBag.Pagetitle <small></small>
+        </h3>
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-home"></i>
+                @Html.MvcSiteMap().SiteMapPath()
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="portlet box  light-grey">
+            <div class="portlet-title">
+                <div class="caption"><i class="icon-reorder"></i>@ViewBag.Pagetitle</div>
+            </div>
+            <div class="portlet-body form">
+                <code style=" font-size:13px;">会员初始密码为123456，密码已被加密，所以不能直接读取出原密码信息，请通过重置功能或会员自己修改密码。</code>
+                <br /><br />
+                @using (Html.BeginForm("MemberCreateEdit", "Member", FormMethod.Post, new { id = "MemberForm", @class = "form-vertical" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        <div class="alert alert-error hide" id="errorMsg">
+                            <button class="close" data-dismiss="alert"></button>
+                            <span id="errorText">错误信息</span>
+                        </div>
+                        <div class="alert alert-success hide">
+                            <button class="close" data-dismiss="alert"></button>
+                            填写完毕，你现在可以提交表单了!
+                        </div>
+                        @Html.HiddenFor(model => model.Id)
+                        @Html.HiddenFor(model => model.LoginPassword)
+                        @Html.HiddenFor(model => model.CreateDate)
+                        @Html.HiddenFor(model => model.PicUrl)
+                        <div class="control-group">
+                            <label class="control-label">用户名：<span class="required">*</span></label>
+                            <div class="controls">
+                                @Html.EditorFor(model => model.LoginName, new { htmlAttributes = new { @class = "span6 m-wrap" } })
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">电子邮件：</label>
+                            <div class="controls">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "span6 m-wrap" } })
+                            </div>
+                        </div>
+
+
+                        <div class="control-group">
+                            <label class="control-label">电话：</label>
+                            <div class="controls">
+                                @Html.EditorFor(model => model.Tel, new { htmlAttributes = new { @class = "span6 m-wrap" } })
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">姓名：</label>
+                            <div class="controls">
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "span6 m-wrap" } })
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">地址：</label>
+                            <div class="controls">
+                                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "span6 m-wrap" } })
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">启用状态<span class="required">*</span></label>
+                            <div class="controls">
+                                <label class="radio">
+                                    @Html.RadioButtonFor(model => model.IsEnabled, true, new { @id = "radio1", @name = "rdolstState", @checked = "checked" })启用
+                                </label>
+                                <label class="radio">
+                                    @Html.RadioButtonFor(model => model.IsEnabled, false, new { @id = "radio0", @name = "rdolstState" })禁用
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn green">保存</button>
+                            <button type="reset" class="btn">重置表单</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("返 回", "MemberIndex")
+</div>
+
+
+<script type="text/javascript" src="~/media/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="~/media/myjs/PageScript/MemberCreateEdit.js"></script>

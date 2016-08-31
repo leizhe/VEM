@@ -1,0 +1,20 @@
+﻿
+<script type="text/javascript">
+    $(function () {
+    $("#CitySelect").change(function () {
+        var selec = $(this).val();
+        var url = '@Url.Action("GetDistrict", "Account")';
+        $("#DistrictSelect").find("option").remove();
+        $.getJSON(url, { 'cityId': selec }, function (result) {
+            $.each(result, function (i, item) {
+                $("<option></option>").val(item["Value"]).text(item["Text"]).appendTo($("#DistrictSelect"));
+            });
+        });
+
+    });
+
+
+});
+</script>
+@Html.DropDownList("CitySelect")
+@Html.DropDownList("DistrictSelect")

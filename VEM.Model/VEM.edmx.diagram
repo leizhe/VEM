@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3c87c373f588468abc7db4b3e7b2e607" Name="Diagram1" >
+        <EntityTypeShape EntityType="VEM.User" Width="1.5" PointX="15.625" PointY="2.75" />
+        <EntityTypeShape EntityType="VEM.Machine" Width="1.5" PointX="0.5" PointY="3.125" />
+        <EntityTypeShape EntityType="VEM.MachineModel" Width="1.5" PointX="3" PointY="3" />
+        <EntityTypeShape EntityType="VEM.City" Width="1.5" PointX="3.625" PointY="0.875" />
+        <EntityTypeShape EntityType="VEM.District" Width="1.5" PointX="6.25" PointY="3" />
+        <AssociationConnector Association="VEM.CityDistrict" />
+        <AssociationConnector Association="VEM.CityMachine" />
+        <AssociationConnector Association="VEM.DistrictMachine" />
+        <EntityTypeShape EntityType="VEM.UserRole" Width="1.5" PointX="17.375" PointY="0.625" />
+        <EntityTypeShape EntityType="VEM.Role" Width="1.5" PointX="17.375" PointY="2.375" />
+        <AssociationConnector Association="VEM.UserUserRole" />
+        <AssociationConnector Association="VEM.RoleUserRole" />
+        <EntityTypeShape EntityType="VEM.Privilege" Width="2.375" PointX="12.375" PointY="5.75" />
+        <EntityTypeShape EntityType="VEM.Menu" Width="1.5" PointX="11.875" PointY="8.125" />
+        <EntityTypeShape EntityType="VEM.Button" Width="1.5" PointX="14" PointY="9" />
+        <AssociationConnector Association="VEM.MenuButton" />
+        <EntityTypeShape EntityType="VEM.Commod" Width="1.5" PointX="4.5" PointY="7.5" />
+        <EntityTypeShape EntityType="VEM.SalesHistory" Width="1.5" PointX="6.625" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VEM.ContainerRoad" Width="1.5" PointX="2.5" PointY="7.5" />
+        <AssociationConnector Association="VEM.CommodContainerRoad" />
+        <AssociationConnector Association="VEM.CommodSalesHistory" />
+        <EntityTypeShape EntityType="VEM.Icon" Width="1.5" PointX="16" PointY="9.5" />
+        <AssociationConnector Association="VEM.MachineModelMachine" />
+        <AssociationConnector Association="VEM.MachineContainerRoad" />
+        <AssociationConnector Association="VEM.MachineSalesHistory" />
+        <AssociationConnector Association="VEM.UserMachine" />
+        <EntityTypeShape EntityType="VEM.Person" Width="1.5" PointX="13.75" PointY="0.5" />
+        <InheritanceConnector EntityType="VEM.User" />
+        <EntityTypeShape EntityType="VEM.Member" Width="1.5" PointX="11.375" PointY="0.5" />
+        <InheritanceConnector EntityType="VEM.Member" />
+        <EntityTypeShape EntityType="VEM.PayRecord" Width="2.625" PointX="10.625" PointY="3.125" />
+        <AssociationConnector Association="VEM.MemberPayRecord" />
+        <EntityTypeShape EntityType="VEM.Coupon" Width="1.5" PointX="6.5" PointY="0.5" />
+        <EntityTypeShape EntityType="VEM.MemberCoupon" Width="1.5" PointX="8.875" PointY="0.625" />
+        <AssociationConnector Association="VEM.MemberMemberCoupon" />
+        <AssociationConnector Association="VEM.CityUser" />
+        <AssociationConnector Association="VEM.DistrictUser" />
+        <EntityTypeShape EntityType="VEM.ShipmentStatusRecord" Width="2.25" PointX="8.125" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="VEM.MachineShipmentStatusRecord" />
+        <AssociationConnector Association="VEM.CouponMemberCoupon" />
+        <AssociationConnector Association="VEM.CommodShipmentStatusRecord" />
+        <EntityTypeShape EntityType="VEM.MachineTem" Width="1.5" PointX="0.5" PointY="0.5" />
+        <AssociationConnector Association="VEM.MachineTemMachine" />
+        <EntityTypeShape EntityType="VEM.Fault" Width="1.5" PointX="0.625" PointY="8.75" />
+        <AssociationConnector Association="VEM.MachineError" />
+        <EntityTypeShape EntityType="VEM.BrowserPrivilege" Width="2.125" PointX="14.875" PointY="5.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

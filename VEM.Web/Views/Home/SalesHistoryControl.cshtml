@@ -1,0 +1,38 @@
+﻿@model IEnumerable<VEM.Model.SalesHistory>
+<div class="scroller" data-height="290px" data-always-visible="1" data-rail-visible1="1">
+    <ul class="feeds">
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <li>
+                    <a href="#">
+                        <div class="col1">
+                            <div class="cont">
+                                <div class="cont-col1">
+                                    <img src="@item.Commod.Pic" alt="" style="width: 30px; height:30px;">
+                                </div>
+                                <div class="cont-col2">
+                                    <div class="desc">
+
+                                        <span class="label label-warning label-mini">
+                                            @Html.DisplayFor(modelItem => item.Commod.Name)
+                                        </span>
+                                        &lt;@Html.DisplayFor(modelItem => item.Machine.MachineCode)&gt;----
+                                        销售价格:<code>@Html.DisplayFor(modelItem => item.SalePrice)</code>元
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col2">
+                            <div class="date">
+                                @Html.Raw(item.SalesDate.ToLongTimeString())
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            }
+        }
+
+    </ul>
+</div>

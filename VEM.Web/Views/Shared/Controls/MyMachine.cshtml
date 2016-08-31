@@ -1,0 +1,64 @@
+﻿@model IEnumerable<VEM.Model.Machine>
+
+<table class="table table-striped table-bordered table-advance table-hover">
+    <thead>
+    <tr>
+        <th>
+            型号
+        </th>
+        <th>
+            本机编号
+        </th>
+        <th>
+            地址
+        </th>
+        <th>
+            软件版本
+        </th>
+        <th>
+            硬件版本
+        </th>
+        <th>
+            在线状态
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr class="odd gradeX">
+            <td>
+                @Html.DisplayFor(modelItem => item.MachineModel.Name)
+                < @Html.DisplayFor(modelItem => item.MachineModel.ModelCode) >
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MachineCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoftwareId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HardwareId)
+            </td>
+            <td>
+                @if (item.IsOnline == true)
+                {
+                    @Html.Raw("<span class='label label-success'>在线</span>")
+                }
+                else
+                {
+                    @Html.Raw("<span class='label label-danger'>离线</span>")
+                }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<span style ="float: right;">
+    <a class="more" href="/Machine/MachineIndex">
+        查看更多
+    </a>
+</span>

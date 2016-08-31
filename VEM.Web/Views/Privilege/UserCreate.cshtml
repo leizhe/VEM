@@ -1,0 +1,135 @@
+﻿@model VEM.Model.User
+
+@{
+    ViewBag.Title = "UserCreate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+        <div class="row-fluid">
+            <div class="span12">
+                <h3 class="page-title">
+                    创建用户 <small>创建后可以通过用户名或电话登录</small>
+                </h3>
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home"></i>
+                        @Html.MvcSiteMap().SiteMapPath()
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+<div class="portlet box  light-grey">
+    <div class="portlet-title">
+        <div class="caption"><i class="icon-reorder"></i>创建用户表</div>
+    </div>
+    <div class="portlet-body form">
+@using (Html.BeginForm("UserCreate", "Privilege", FormMethod.Post, new { id = "UserCreateForm", enctype = "multipart/form-data", @class = "form-vertical" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <div class="alert alert-error hide" id="errorMsg">
+            <button class="close" data-dismiss="alert"></button>
+            <span id="errorText">错误信息</span>
+        </div>
+        <div class="alert alert-success hide" >
+            <button class="close" data-dismiss="alert"></button>
+            填写完毕，你现在可以提交表单了!
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="control-group">
+            <label class="control-label">用户名：<span class="required">*</span></label>
+            <div class="controls">
+                @Html.EditorFor(model => model.LoginName, new { htmlAttributes = new { @class = "span6 m-wrap" } })
+            </div>
+        </div>
+
+
+        <div class="control-group">
+            <label class="control-label">密码：<span class="required">*</span></label>
+            <div class="controls">
+                @Html.EditorFor(model => model.LoginPassword, new { htmlAttributes = new { @class = "span6 m-wrap" } })
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">地区：<span class="required">*</span></label>
+            <div class="controls">
+                @Html.Partial("Controls/RegionSelection")
+            </div>
+        </div>
+
+
+        <div class="control-group">
+            <label class="control-label">电话：<span class="required">*</span></label>
+            <div class="controls">
+                @Html.EditorFor(model => model.Tel, new { htmlAttributes = new { @class = "span6 m-wrap" } })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">电子邮件：</label>
+            <div class="controls">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "span6 m-wrap" } })
+            </div>
+        </div>
+
+
+        <div class="control-group">
+            <label class="control-label">姓名：</label>
+            <div class="controls">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "span6 m-wrap" } })
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">地址：</label>
+            <div class="controls">
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "span6 m-wrap" } })
+            </div>
+        </div>
+
+
+        <div class="control-group">
+            <label class="control-label">公司名：</label>
+            <div class="controls">
+                @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "span6 m-wrap" } })
+            </div>
+        </div>
+
+
+        <div class="control-group">
+            <label class="control-label">启用状态<span class="required">*</span></label>
+            <div class="controls">
+                <label class="radio">
+                    @Html.RadioButtonFor(model => model.IsEnabled, true, new { @id = "radio1", @name = "rdolstState", @checked = "checked" })启用
+                </label>
+                <label class="radio">
+                    @Html.RadioButtonFor(model => model.IsEnabled, false, new { @id = "radio0", @name = "rdolstState" })禁用
+                </label>
+            </div>
+        </div>
+
+			 
+			 <div class="form-actions">
+                <button type="submit" class="btn green">保存</button>
+              <button type="reset" class="btn">重置表单</button>
+            </div>
+    </div>
+}
+    </div>
+</div>
+      </div>
+   </div>
+<div>
+    @Html.ActionLink("返 回", "UserIndex")
+</div>
+
+<script type="text/javascript" src="~/media/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="~/media/myjs/PageScript/UserCreate.js"></script>
+
+
+
+
+

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+  <mvcSiteMapNode title="主页" controller="Home" action="Index">
+    <mvcSiteMapNode title="角色管理" controller="Privilege" action="RoleIndex">
+      <mvcSiteMapNode title="创建角色" controller="Privilege" action="RoleCreate"/>
+      <mvcSiteMapNode title="修改角色" controller="Privilege" action="RoleEdit"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="用户管理" controller="Privilege" action="UserIndex">
+      <mvcSiteMapNode title="添加用户" controller="Privilege" action="UserCreate"/>
+      <mvcSiteMapNode title="修改用户" controller="Privilege" action="UserEdit"/>
+      <mvcSiteMapNode title="用户角色分配" controller="Privilege" action="GiveUserRole"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="用户权限管理" controller="Privilege" action="UserPrivilege">
+      <mvcSiteMapNode title="分配权限" controller="Privilege" action="UserPrivilegeManager"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="角色权限管理" controller="Privilege" action="RolePrivilege">
+      <mvcSiteMapNode title="分配权限" controller="Privilege" action="RolePrivilegeManager"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="个人信息管理" controller="Account" action="UserDetails">
+      <mvcSiteMapNode title="修改密码" controller="Account" action="EditPass"/>
+      <mvcSiteMapNode title="修改头像" controller="Account" action="ChangeUserPic"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="菜单管理" controller="System" action="MenuManager">
+      <mvcSiteMapNode title="添加修改菜单" controller="System" action="MenuCreateEdit"/>
+      <mvcSiteMapNode title="添加修改子菜单" controller="System" action="ChildMenuCreateEdit"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="地域维护" controller="System" action="RegionManager">
+      <mvcSiteMapNode title="添加修改城市" controller="System" action="CityCreateEdit"/>
+      <mvcSiteMapNode title="添加区县" controller="System" action="DistrictCreate"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="售货机型号管理" controller="Machine" action="MachineModel">
+      <mvcSiteMapNode title="添加修改型号" controller="Machine" action="MachineModelCreateEdit"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="售货机管理" controller="Machine" action="MachineIndex">
+      <mvcSiteMapNode title="添加修改售货机" controller="Machine" action="MachineCreateEdit"/>
+      <mvcSiteMapNode title="租售状态管理" controller="Machine" action="MachineStatus">
+        <mvcSiteMapNode title="分配用户" controller="Machine" action="MachineStatusUpdate"/>
+      </mvcSiteMapNode>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="商品管理" controller="Commod" action="CommodIndex">
+      <mvcSiteMapNode title="添加修改商品" controller="Commod" action="CommodCreateEdit"/>
+      <mvcSiteMapNode title="商品详情" controller="Commod" action="CommodDetails"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="货道供货" controller="Commod" action="CommodSupply">
+      <mvcSiteMapNode title="货道管理" controller="Commod" action="ContainerRoadCreateEdit"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="会员管理" controller="Member" action="MemberIndex">
+      <mvcSiteMapNode title="添加修改会员" controller="Member" action="MemberCreateEdit"/>
+      <mvcSiteMapNode title="充值消费记录" controller="Member" action="MemberPayRecord"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="优惠券管理" controller="Member" action="CouponIndex">
+      <mvcSiteMapNode title="添加修改优惠券" controller="Member" action="CouponCreateEdit"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="出货状态" controller="Monitor" action="ShipmentMsg"/>
+    <mvcSiteMapNode title="故障信息" controller="Monitor" action="ErrorMsg"/>
+    <mvcSiteMapNode title="库存信息" controller="Monitor" action="ReserveMsg"/>
+    <mvcSiteMapNode title="销售信息" controller="Monitor" action="SaleMsg"/>
+  </mvcSiteMapNode>
+
+</mvcSiteMap>

@@ -1,0 +1,122 @@
+﻿@model VEM.Model.BrowserPrivilege
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var user = ViewData["ThisUser"] as VEM.Model.User;
+
+}
+
+
+<link rel="stylesheet" type="text/css" href="~/media/css/bootstrap-tree.css" />
+<div class="row-fluid">
+    <div class="span12">
+        <h3 class="page-title">
+            用户权限分配 <small>分配用户可查看菜单和可点击按钮的权限</small>
+        </h3>
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-home"></i>
+                @Html.MvcSiteMap().SiteMapPath()
+            </li>
+        </ul>
+    </div>
+</div>
+@using (Html.BeginForm("UserPrivilegeSave", "Privilege", FormMethod.Post, new { id = "UserPrivilegeForm", enctype = "multipart/form-data", @class = "form-vertical" }))
+{
+    <div class="row-fluid">
+        <div class="span12 portlet box grey">
+            <div class="portlet-title">
+                <div class="caption"><i class="icon-comments"></i>@Html.Raw(user.LoginName)的浏览权限</div>
+            </div>
+            <div class="portlet-body fuelux">
+               @Html.Partial("BrowserPrivilege");
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span5">
+            <div class="portlet box grey">
+                <div class="portlet-title">
+                    <div class="caption"><i class="icon-comments"></i>@Html.Raw(user.LoginName)的菜单权限</div>
+                    <div class="actions">
+                        <a href="javascript:;" id="tree_1_CheckAll" class="btn red">全选</a>
+                        <a href="javascript:;" id="tree_1_collapse" class="btn yellow">折叠</a>
+                        <a href="javascript:;" id="tree_1_expand" class="btn green">打开</a>
+                    </div>
+                </div>
+                <div class="portlet-body fuelux">
+                    @Html.Raw(ViewData["UserMenu"].ToString())
+                </div>
+            </div>
+        </div>
+        <div class="span7">
+
+            <div class="portlet box grey">
+                <div class="portlet-title">
+                    <div class="caption"><i class="icon-comments"></i>@Html.Raw(user.LoginName)的按钮权限</div>
+                    <div class="actions">
+                        <a href="javascript:;" id="tree_2_CheckAll" class="btn red">全选</a>
+                    </div>
+                </div>
+                <div class="portlet-body fuelux" id="buttonDiv">
+                    @Html.Raw(ViewData["UserButton"].ToString())
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row-fluid">
+        <div class="form-actions">
+            <a href="~/Privilege/UserPrivilege" class="btn"><i></i> 返回</a>
+            <button type="button" class="btn green" id="btnSave" style="align-content:center">保存</button>
+        </div>
+        <input type="hidden" id="userId" name="userId" value="@user.Id" />
+        <input type="hidden" id="id" name="id" value="@if (Model != null)
+                                                              {
+                                                                  @Model.Id
+                                                              }" />
+        <input type="hidden" id="privilegeMaster" name="privilegeMaster" value="@if (Model != null)
+                                                              {
+                                                                  @Model.PrivilegeMaster
+                                                              }" />
+        <input type="hidden" id="privilegeMasterValue" name="privilegeMasterValue" value="@if (Model != null)
+                                                              {
+                                                                  @Model.PrivilegeMasterValue
+                                                              }" />
+    </div>
+}
+<script src="~/media/js/bootstrap-tree.js"></script>
+<script src="~/media/myjs/PageScript/PrivilegeManager.js"></script>
+<script>
+    $(function () {
+
+        $('#tree_1_CheckAll').click(function () {
+            CheckAll(this,"checkMenu","/Privilege/GetUserMenuButtonAll",@user.Id);
+        });
+
+        $('#tree_2_CheckAll').click(function () {
+            CheckAll(this,"checkBtn","/Privilege/GetUserMenuButtonAll",@user.Id);
+        });
+
+        $('.checkMenu').on('click',  function(e) {
+            AddCheckButton(this,e,"/Privilege/GetUserMenuButton",@user.Id);
+        });
+
+        $('#btnSave').click(function () {
+            AjaxRequest.submit(
+                   "/Privilege/UserPrivilegeSave",
+                   $("#UserPrivilegeForm").serialize(),
+                  function (result) {
+                      if ("操作成功" != STATUS[result.StatusCode]) {
+                          Modal.alert({ msg: STATUS[result.StatusCode], title: '错误信息', btnok: '确定' });
+                      } else {
+                          ModalHtml.showSuccess("操作成功!","用户权限保存成功","/Privilege/UserPrivilege");
+                      }
+                  },
+                  function (XMLHttpRequest) {
+                  });
+        });
+
+    });
+</script>
